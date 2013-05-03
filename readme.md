@@ -45,37 +45,51 @@ sliding, scaling, fading and rotating.
 All element which make up the menus and dialogs are based on 9-slice images.
 
 <table>
-	<th><td>Images</td><td>Size</td><td>Purpose</td></th>
 	<tr>
-		<td><img src="doc/background.png" width="40" height="40"/></td>
+		<th>Images</th>
+		<th>Size</th>
+		<th>Purpose</th>
+	</tr>
+	<tr>
+		<td><img src="doc/components/background.png" width="40" height="40"/></td>
 		<td>40x40</td>
 		<td>Background</td>
 	</tr>
 	<tr>
-		<td><img src="doc/item.png" width="40" height="40"/></td>
+		<td><img src="doc/components/item.png" width="40" height="40"/></td>
 		<td>40x40</td>
 		<td>Item background, content backround</td>
 	</tr>
 	<tr>
-		<td><img src="doc/title.png" width="40" height="40"/></td>
+		<td><img src="doc/components/title.png" width="40" height="40"/></td>
 		<td>40x40</td>
 		<td>Title background</td>
 	</tr>
 	<tr>
-		<td><img src="doc/button1Down.png" width="64" height="64"/> <img src="doc/button1Up.png" width="64" height="64"/></td>
+		<td><img src="doc/components/button1Down.png" width="64" height="64"/> <img src="doc/components/button1Up.png" width="64" height="64"/></td>
 		<td>64x64</td>
 		<td>Button background</td>
 	</tr>
 	<tr>
-		<td><img src="doc/button2Down.png" width="64" height="64"/> <img src="doc/button2Up.png" width="64" height="64"/></td>
+		<td><img src="doc/components/button2Down.png" width="64" height="64"/> <img src="doc/components/button2Up.png" width="64" height="64"/></td>
 		<td>64x64</td>
 		<td>Button background</td>
+	</tr>
+	<tr>
+		<td><img src="doc/components/buttonBack.png" width="40" height="40"/></td>
+		<td>40x40</td>
+		<td>Back button</td>
+	</tr>
+	<tr>
+		<td><img src="doc/components/buttonClose.png" width="40" height="40"/></td>
+		<td>40x40</td>
+		<td>Close button</td>
 	</tr>
 </table>
 
 ### MenuView Class
 
-<img src="doc/menus.png" width="480" height="320"/><br />
+<img src="doc/screenshots/menus.png" width="480" height="320"/><br />
 *A screenshot of the main menu*
 
 Parameters
@@ -134,10 +148,10 @@ Emitted then the menu is hidden.
 
 The `TextDialogView` class is a generic dialog which can be used to create a confirm or alert dialog.
 
-<img src="doc/confirm.png" width="480" height="320"/><br />
+<img src="doc/screenshots/confirm.png" width="480" height="320"/><br />
 *A screenshot of a confirm dialog using the `TextDialogView` class*
 
-<img src="doc/alert.png" width="480" height="320"/><br />
+<img src="doc/screenshots/alert.png" width="480" height="320"/><br />
 *A screenshot of an alert dialog using the `TextDialogView` class*
 
 Parameters
@@ -202,7 +216,7 @@ The `TutorialView` is a dialog to display a short animation.
 
 The [SpriteView](http://docs.gameclosure.com/api/ui-spriteview.html) class is used to play the animation.
 
-<img src="doc/tutorial.png" width="320" height="480"/><br />
+<img src="doc/screenshots/tutorial.png" width="320" height="480"/><br />
 *A screenshot of a tutorial dialog*
 
 Parameters
