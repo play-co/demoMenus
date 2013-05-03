@@ -2,7 +2,7 @@ import animate;
 
 import ui.View as View;
 
-import src.constants.viewConstants as viewConstants;
+import src.constants.menuConstants as menuConstants;
 
 exports = Class(View, function (supr) {
 	this.init = function (opts) {
@@ -43,13 +43,13 @@ exports = Class(View, function (supr) {
 			animate(this._dialogOverlayView).then({opacity: 0.3}, 300);
 		}
 
-		var time = this._opts.showTransitionTime || viewConstants.DIALOG.SHOW_TRANSITION_TIME;
+		var time = this._opts.showTransitionTime || menuConstants.DIALOG.SHOW_TRANSITION_TIME;
 		var dialogContainerView = this._dialogContainerView;
 		var dialogContainerStyle = dialogContainerView.style;
 		var a;
 
-		switch (this._opts.showTransitionMethod || viewConstants.DIALOG.SHOW_TRANSITION_METHOD) {
-			case viewConstants.transitionMethod.SLIDE:
+		switch (this._opts.showTransitionMethod || menuConstants.DIALOG.SHOW_TRANSITION_METHOD) {
+			case menuConstants.transitionMethod.SLIDE:
 				dialogContainerStyle.x = -GC.app.baseWidth;
 				dialogContainerStyle.r = 0;
 				dialogContainerStyle.opacity = 1;
@@ -57,7 +57,7 @@ exports = Class(View, function (supr) {
 				a = animate(dialogContainerView).then({x: 0}, time);
 				break;
 
-			case viewConstants.transitionMethod.SCALE:
+			case menuConstants.transitionMethod.SCALE:
 				dialogContainerStyle.x = 0;
 				dialogContainerStyle.r = 0;
 				dialogContainerStyle.opacity = 1;
@@ -67,7 +67,7 @@ exports = Class(View, function (supr) {
 				a = animate(dialogContainerView).then({scale: 1}, time);
 				break;
 
-			case viewConstants.transitionMethod.FADE:
+			case menuConstants.transitionMethod.FADE:
 				dialogContainerStyle.x = 0;
 				dialogContainerStyle.r = 0;
 				dialogContainerStyle.opacity = 0;
@@ -75,7 +75,7 @@ exports = Class(View, function (supr) {
 				a = animate(dialogContainerView).then({opacity: 1}, time);
 				break;
 
-			case viewConstants.transitionMethod.ROTATE:
+			case menuConstants.transitionMethod.ROTATE:
 				dialogContainerStyle.x = 0;
 				dialogContainerStyle.anchorX = 0;
 				dialogContainerStyle.anchorY = 0;
@@ -107,27 +107,27 @@ exports = Class(View, function (supr) {
 			animate(this._dialogOverlayView).then({opacity: 0}, 300);
 		}
 
-		var time = this._opts.hideTransitionTime || viewConstants.DIALOG.HIDE_TRANSITION_TIME;
+		var time = this._opts.hideTransitionTime || menuConstants.DIALOG.HIDE_TRANSITION_TIME;
 		var dialogContainerView = this._dialogContainerView;
 		var dialogContainerStyle = dialogContainerView.style;
 		var a;
 
-		switch (this._opts.hideTransitionMethod || viewConstants.DIALOG.HIDE_TRANSITION_METHOD) {
-			case viewConstants.transitionMethod.SLIDE:
+		switch (this._opts.hideTransitionMethod || menuConstants.DIALOG.HIDE_TRANSITION_METHOD) {
+			case menuConstants.transitionMethod.SLIDE:
 				a = animate(dialogContainerView).then({x: GC.app.baseWidth}, time);
 				break;
 
-			case viewConstants.transitionMethod.SCALE:
+			case menuConstants.transitionMethod.SCALE:
 				dialogContainerStyle.anchorX = dialogContainerStyle.width * 0.5;
 				dialogContainerStyle.anchorY = dialogContainerStyle.height * 0.5;
 				a = animate(this._dialogContainerView).then({scale: 0}, time);
 				break;
 
-			case viewConstants.transitionMethod.FADE:
+			case menuConstants.transitionMethod.FADE:
 				a = animate(dialogContainerView).then({opacity: 0}, time);
 				break;
 
-			case viewConstants.transitionMethod.ROTATE:
+			case menuConstants.transitionMethod.ROTATE:
 				a = animate(dialogContainerView).then({r: Math.PI}, time);
 				break;
 

@@ -2,7 +2,7 @@ import animate;
 
 import ui.View as View;
 
-import src.constants.viewConstants as viewConstants;
+import src.constants.menuConstants as menuConstants;
 
 import .components.BoxBorderView as BoxBorderView;
 import .components.BoxDialogView as BoxDialogView;
@@ -16,7 +16,7 @@ exports = Class(DialogView, function (supr) {
 
 		supr(this, 'init', arguments);
 
-		var contentStyle = viewConstants.CONTENT;
+		var contentStyle = menuConstants.CONTENT;
 
 		// The dialog containing the actual content...
 		this._dialogView = new BoxDialogView({
@@ -72,7 +72,7 @@ exports = Class(DialogView, function (supr) {
 						width: button.width,
 						height: 64,
 						title: button.title,
-						color: button.color || 'BLUE',
+						style: button.style || 'BLUE',
 						on: {
 							up: bind(this, 'hide', button.cb)
 						}
@@ -81,5 +81,13 @@ exports = Class(DialogView, function (supr) {
 				}
 			)(buttons[i]);
 		}
+	};
+
+	this.setTitle = function (text) {
+		this._dialogView.title.setText(text);
+	};
+
+	this.setText = function (text) {
+		this._dialogView.text.setText(text);
 	};
 });

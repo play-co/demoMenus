@@ -40,12 +40,9 @@ option is selected.
 This demo offsers several transitions to show or hide menus:
 sliding, scaling, fading and rotating.
 
-### MenuView
+### MenuView Class
 
 <img src="doc/menus.png" width="480" height="320"/>
-
-Inherits from
- * [ui.View](http://docs.gameclosure.com/api/ui-view.html)
 
 Parameters
  + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
@@ -69,6 +66,73 @@ new MenuView({
 ~~~
 
 #### Methods
+
+__show([cb])__
+
+Parameters
+ + `cb {function}` ---Optional, a callback invoked when the menu is visible.
+Returns
+ {object} ---Returns the reference to the menu.
+
+__hide([cb])__
+
+Parameters
+ + `cb {function}` ---Optional, a callback invoked when the menu is hidden.
+Returns
+ {object} ---Returns the reference to the menu.
+
+### TextDialogView Class
+
+#### Events
+
+If the action is a string then that string is emitted when the option is clicked.
+
+__Hide__
+
+Emitted then the menu is hidden.
+
+<img src="doc/menus.png" width="480" height="320"/>
+
+Parameters
+ + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
+ + `title {string}` ---The title displayed in the title bar of the menu.
+ + `text {string}` ---The text displayed.
+ + `height {number}` ---Optional, defaults to 400.
+ + `modal {boolean}` ---Optional, if true then the background will be darkened.
+ + `buttons {array}` ---A list of buttons displayed at the bottom of the dialog, the structure of the button item is:
+  + `title {string}` ---The title of the button.
+  + `width {number}` ---The horizontal size of the button.
+  + `style {string}` ---A string representing the style of the button, the styles are configured in `src.constants.menuConstants`.
+
+~~~
+import src.views.ui.TextDialogView as TextDialogView;
+
+new TextDialogView({
+	superview: this,
+	title: 'Alert modal',
+	text: 'This menu is displayed on top of the dialogs menu',
+	modal: true,
+	buttons: [
+		{
+			title: 'Ok',
+			width: 160,
+			style: 'GREEN'
+		}
+	]
+});
+~~~
+
+#### Methods
+
+__setText(text)__
+
+Parameters
+ + `text {string}` ---Sets the text of the dialog
+
+__setTitle(text)__
+
+Parameters
+ + `text {string}` ---Sets the title of the dialog
 
 __show([cb])__
 

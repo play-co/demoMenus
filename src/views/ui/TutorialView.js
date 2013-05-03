@@ -4,7 +4,7 @@ import ui.View as View;
 import ui.SpriteView as SpriteView;
 import ui.ImageScaleView as ImageScaleView;
 
-import src.constants.viewConstants as viewConstants;
+import src.constants.menuConstants as menuConstants;
 
 import .components.BoxDialogView as BoxDialogView;
 import .components.ButtonView as ButtonView;
@@ -29,7 +29,7 @@ exports = Class(DialogView, function (supr) {
 
 		supr(this, 'init', arguments);
 
-		var contentStyle = viewConstants.CONTENT;
+		var contentStyle = menuConstants.CONTENT;
 
 		// The dialog containing the actual content...
 		this._dialogView = new BoxDialogView({
@@ -52,7 +52,7 @@ exports = Class(DialogView, function (supr) {
 			y: 0,
 			width: 0,
 			height: 0,
-			backgroundColor: opts.backgroundColor || viewConstants.TUTORIAL.BACKGROUND_COLOR || 'rgb(255, 255, 255)'
+			backgroundColor: opts.backgroundColor || menuConstants.TUTORIAL.BACKGROUND_COLOR || 'rgb(255, 255, 255)'
 		});
 		this._spriteView = new TutorialSpriteView({
 			superview: this._dialogView,

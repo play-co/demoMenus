@@ -1,7 +1,7 @@
 import ui.TextView as TextView;
 import ui.ImageView as ImageView;
 
-import src.constants.viewConstants as viewConstants;
+import src.constants.menuConstants as menuConstants;
 
 import .ButtonView as ButtonView;
 
@@ -11,7 +11,7 @@ exports = Class(BoxBorderView, function (supr) {
 	this.init = function (opts) {
 		supr(this, 'init', [opts]);
 
-		var titleStyle = viewConstants.TITLE;
+		var titleStyle = menuConstants.TITLE;
 
 		this.title = new BoxBorderView({
 			superview: this,
@@ -42,7 +42,7 @@ exports = Class(BoxBorderView, function (supr) {
 					y: 7,
 					width: 38,
 					height: 38,
-					image: viewConstants.DIALOG.BACK
+					image: menuConstants.DIALOG.BACK
 				},
 				on: {
 					up: opts.backCB
@@ -63,7 +63,7 @@ exports = Class(BoxBorderView, function (supr) {
 					y: 7,
 					width: 38,
 					height: 38,
-					image: viewConstants.DIALOG.CLOSE
+					image: menuConstants.DIALOG.CLOSE
 				},
 				on: {
 					up: opts.closeCB

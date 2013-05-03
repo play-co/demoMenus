@@ -1,11 +1,11 @@
 import ui.widget.ButtonView as ButtonView;
 
-import src.constants.viewConstants as viewConstants;
+import src.constants.menuConstants as menuConstants;
 
 exports = Class(ButtonView, function (supr) {
 	this.init = function (opts) {
 		var color = opts.color || 'GREEN';
-		var buttonStyle = viewConstants.BUTTONS[color]; 
+		var buttonStyle = menuConstants.BUTTONS[color]; 
 
 		opts = merge(
 			opts,

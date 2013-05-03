@@ -4,7 +4,7 @@ import ui.View as View;
 import ui.TextView as TextView;
 import ui.ImageView as ImageView;
 
-import src.constants.viewConstants as viewConstants;
+import src.constants.menuConstants as menuConstants;
 
 import .components.BoxBorderView as BoxBorderView;
 import .components.BoxDialogView as BoxDialogView;
@@ -42,8 +42,8 @@ exports = Class(DialogView, function (supr) {
 
 		this._items = [];
 
-		var itemStyle = viewConstants.MENU_ITEM;
-		var textStyle = viewConstants.MENU_TEXT;
+		var itemStyle = menuConstants.MENU_ITEM;
+		var textStyle = menuConstants.MENU_TEXT;
 		var menu = this;
 		var y = 80;
 

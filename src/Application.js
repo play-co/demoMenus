@@ -2,7 +2,7 @@ import device;
 
 import ui.ImageView as ImageView;
 
-import src.constants.viewConstants as viewConstants;
+import src.constants.menuConstants as menuConstants;
 
 import src.views.ui.MenuView as MenuView;
 import src.views.ui.TextDialogView as TextDialogView;
@@ -105,7 +105,7 @@ exports = Class(GC.Application, function () {
 				{
 					title: 'Ok',
 					width: 160,
-					color: 'GREEN'
+					style: 'GREEN'
 				}
 			]
 		});
@@ -118,7 +118,7 @@ exports = Class(GC.Application, function () {
 				{
 					title: 'Ok',
 					width: 160,
-					color: 'GREEN',
+					style: 'GREEN',
 					cb: bind(this, 'showMenu', '_alertDialogsMenu')
 				}
 			]
@@ -145,12 +145,12 @@ exports = Class(GC.Application, function () {
 				{
 					title: 'Green',
 					width: 200,
-					color: 'GREEN',
+					style: 'GREEN',
 				},
 				{
 					title: 'Blue',
 					width: 200,
-					color: 'BLUE'
+					style: 'BLUE'
 				}
 			]
 		});
@@ -163,13 +163,13 @@ exports = Class(GC.Application, function () {
 				{
 					title: 'Green',
 					width: 200,
-					color: 'GREEN',
+					style: 'GREEN',
 					cb: bind(this, 'showMenu', '_confirmDialogsMenu')
 				},
 				{
 					title: 'Blue',
 					width: 200,
-					color: 'BLUE',
+					style: 'BLUE',
 					cb: bind(this, 'showMenu', '_confirmDialogsMenu')
 				}
 			]
@@ -224,12 +224,12 @@ exports = Class(GC.Application, function () {
 				{
 					title: 'Ok',
 					width: 160,
-					color: 'GREEN',
+					style: 'GREEN',
 					cb: bind(this, 'showMenu', '_transitionsMenu')
 				}
 			],
-			showTransitionMethod: viewConstants.transitionMethod.SLIDE,
-			hideTransitionMethod: viewConstants.transitionMethod.SLIDE
+			showTransitionMethod: menuConstants.transitionMethod.SLIDE,
+			hideTransitionMethod: menuConstants.transitionMethod.SLIDE
 		}).on('Hide', bind(this, 'showMenu', '_transitionsMenu'));
 
 		this._scaleDialog = new TextDialogView({
@@ -240,12 +240,12 @@ exports = Class(GC.Application, function () {
 				{
 					title: 'Ok',
 					width: 160,
-					color: 'GREEN',
+					style: 'GREEN',
 					cb: bind(this, 'showMenu', '_transitionsMenu')
 				}
 			],
-			showTransitionMethod: viewConstants.transitionMethod.SCALE,
-			hideTransitionMethod: viewConstants.transitionMethod.SCALE
+			showTransitionMethod: menuConstants.transitionMethod.SCALE,
+			hideTransitionMethod: menuConstants.transitionMethod.SCALE
 		}).on('Hide', bind(this, 'showMenu', '_transitionsMenu'));
 
 		this._fadeDialog = new TextDialogView({
@@ -256,13 +256,13 @@ exports = Class(GC.Application, function () {
 				{
 					title: 'Ok',
 					width: 160,
-					color: 'GREEN',
+					style: 'GREEN',
 					cb: bind(this, 'showMenu', '_transitionsMenu')
 				}
 			],
 			closeCB: bind(this, 'showMenu', '_transitionsMenu'),
-			showTransitionMethod: viewConstants.transitionMethod.FADE,
-			hideTransitionMethod: viewConstants.transitionMethod.FADE
+			showTransitionMethod: menuConstants.transitionMethod.FADE,
+			hideTransitionMethod: menuConstants.transitionMethod.FADE
 		}).on('Hide', bind(this, 'showMenu', '_transitionsMenu'));
 
 		this._rotateDialog = new TextDialogView({
@@ -273,14 +273,14 @@ exports = Class(GC.Application, function () {
 				{
 					title: 'Ok',
 					width: 160,
-					color: 'GREEN',
+					style: 'GREEN',
 					cb: bind(this, 'showMenu', '_transitionsMenu')
 				}
 			],
 			closeCB: bind(this, 'showMenu', '_transitionsMenu'),
-			showTransitionMethod: viewConstants.transitionMethod.ROTATE,
+			showTransitionMethod: menuConstants.transitionMethod.ROTATE,
 			showTransitionTime: 1000,
-			hideTransitionMethod: viewConstants.transitionMethod.ROTATE,
+			hideTransitionMethod: menuConstants.transitionMethod.ROTATE,
 			hideTransitionTime: 1000
 		}).on('Hide', bind(this, 'showMenu', '_transitionsMenu'));
 	};

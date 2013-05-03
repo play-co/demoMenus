@@ -1,14 +1,14 @@
 import ui.ImageScaleView as ImageScaleView;
 import ui.TextView as TextView;
 
-import src.constants.viewConstants as viewConstants;
+import src.constants.menuConstants as menuConstants;
 
 exports = Class(ImageScaleView, function (supr) {
 	this.init = function (opts) {
 		opts = merge(
 			opts,
 			{
- 				image: viewConstants.DIALOG.BACKGROUND,
+ 				image: menuConstants.DIALOG.BACKGROUND,
 				scaleMethod: '9slice',
 				sourceSlices: {
 					horizontal: {left: 16, center: 8, right: 16},
