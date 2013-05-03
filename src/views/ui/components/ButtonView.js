@@ -24,7 +24,7 @@ exports = Class(ButtonView, function (supr) {
 					size: buttonStyle.FONT_SIZE,
 					strokeColor: buttonStyle.STROKE_COLOR,
 					color: buttonStyle.COLOR,
-					strokeWidth: 6
+					strokeWidth: buttonStyle.STROKE_WIDTH
 				}
 			}
 		);

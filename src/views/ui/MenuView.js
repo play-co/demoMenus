@@ -2,6 +2,7 @@ import animate;
 
 import ui.View as View;
 import ui.TextView as TextView;
+import ui.ImageView as ImageView;
 
 import src.constants.viewConstants as viewConstants;
 
@@ -22,6 +23,8 @@ exports = Class(DialogView, function (supr) {
 				height += (item.height || 70) + 10;
 			} else if (item.space) {
 				height += 10;
+			} else if (item.image) {
+				height += (item.height || 70) + 10;
 			} else {
 				height += 70;
 			}
@@ -48,13 +51,31 @@ exports = Class(DialogView, function (supr) {
 			var item = items[i];
 			if (item.space) {
 				y += 10;
+			} else if (item.image) {
+				var align = itemStyle.ALIGN || item.align || 'left';
+				var x = 10;
+				if (align === 'center') {
+					x = (this._dialogView.style.width - (item.width || 70)) * 0.5;
+				} else if (item.align === 'right') {
+					x = this._dialogView.style.width - (item.width || 70) - 10;
+				}
+
+				new ImageView({
+					superview: this._dialogView,
+					x: x,
+					y: y,
+					width: item.width || 70,
+					height: item.height || 70,
+					image: item.image
+				});
+				y += (item.height || 70) + 10;
 			} else if (item.text) {
 				new TextView({
 					superview: this._dialogView,
 					x: 10,
 					y: y,
 					width: this._dialogView.style.width - 20,
-					height: item.height || 60,
+					height: item.height || 70,
 					image: itemStyle.BACKGROUND,
 					text: item.text,
 					fontFamily: textStyle.FONT_FAMILY,
@@ -62,10 +83,10 @@ exports = Class(DialogView, function (supr) {
 					padding: textStyle.PADDING,
 					color: itemStyle.COLOR,
 					strokeColor: textStyle.STROKE_COLOR,
-					strokeWidth: 6,
+					strokeWidth: textStyle.STROKE_WIDTH,
 					wrap: true,
 					buffer: false,
-					horizontalAlign: item.horizontalAlign || textStyle.HORIZONTAL_ALIGN || 'center'
+					horizontalAlign: item.align || textStyle.ALIGN || 'center'
 				});
 				y += (item.height || 70) + 10;
 			} else {
@@ -82,7 +103,7 @@ exports = Class(DialogView, function (supr) {
 					textPadding: itemStyle.PADDING,
 					textColor: itemStyle.COLOR,
 					textOutline: itemStyle.STROKE_COLOR,
-					horizontalAlign: item.horizontalAlign || itemStyle.HORIZONTAL_ALIGN || 'center'
+					horizontalAlign: item.align || itemStyle.ALIGN || 'center'
 				});
 
 				itemView.onInputSelect = (function (item) {

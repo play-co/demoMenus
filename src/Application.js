@@ -2,6 +2,8 @@ import device;
 
 import ui.ImageView as ImageView;
 
+import src.constants.viewConstants as viewConstants;
+
 import src.views.ui.components.BoxBorderView as BoxBorderView;
 import src.views.ui.components.BoxDialogView as BoxDialogView;
 
@@ -27,9 +29,11 @@ exports = Class(GC.Application, function () {
 		});
 
 		this._createMainMenu();
+		this._createMenus();
 		this._createAlertMenus();
 		this._createTutorialMenus();
 		this._createConfirmMenus();
+		this._createTransitionMenus();
 	};
 
 	this._createMainMenu = function () {
@@ -37,15 +41,51 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			title: 'Main menu',
 			items: [
-				{item: 'Alert dialogs', action: 'AlertDialogsMenu'},
-				{item: 'Confirm dialogs', action: 'ConfirmDialogsMenu'},
-				{item: 'Tutorial', action: 'TutorialMenu'}
+				{item: 'Menus', action: bind(this, 'showMenu', '_menusMenu')},
+				{item: 'Alert dialogs', action: bind(this, 'showMenu', '_alertDialogsMenu')},
+				{item: 'Confirm dialogs', action: bind(this, 'showMenu', '_confirmDialogsMenu')},
+				{item: 'Tutorial dialog', action: bind(this, 'showMenu', '_tutorialMenu')},
+				{item: 'Transitions', action: bind(this, 'showMenu', '_transitionsMenu')}
 			]
+		}).show();
+	};
+
+	this._createMenus = function () {
+		this._menusMenu = new MenuView({
+			superview: this,
+			title: 'Menus',
+			items: [
+				{item: 'Menu with text', action: bind(this, 'showMenu', '_menuTextMenu')},
+				{item: 'Menu with images', action: bind(this, 'showMenu', '_menuImageMenu')}
+			],
+			closeCB: bind(this._mainMenu, 'show')
+		});
+
+		this._menuTextMenu = new MenuView({
+			superview: this,
+			title: 'Text',
+			items: [
+				{text: 'Left aligned', align: 'left'},
+				{text: 'Centered', align: 'center'},
+				{text: 'Right aligned', align: 'right'},
+				{item: 'Back to menus', action: 'Back'}
+			],
+			closeCB: bind(this, 'showMenu', '_menusMenu')
 		}).
-			on('AlertDialogsMenu', bind(this, 'showMenu', '_alertDialogsMenu')).
-			on('ConfirmDialogsMenu', bind(this, 'showMenu', '_confirmDialogsMenu')).
-			on('TutorialMenu', bind(this, 'showMenu', '_tutorialMenu')).
-			show();
+			on('Back', bind(this, 'showMenu', '_menusMenu'));
+
+		this._menuImageMenu = new MenuView({
+			superview: this,
+			title: 'Images',
+			items: [
+				{image: 'resources/images/ui/gc96.png', height: 96, width: 96},
+				{image: 'resources/images/ui/gc96.png', height: 96, width: 96, align: 'center'},
+				{image: 'resources/images/ui/gc96.png', height: 96, width: 96, align: 'right'},
+				{item: 'Back to menus', action: 'Back'}
+			],
+			closeCB: bind(this, 'showMenu', '_menusMenu')
+		}).
+			on('Back', bind(this, 'showMenu', '_menusMenu'));
 	};
 
 	this._createAlertMenus = function () {
@@ -53,13 +93,11 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			title: 'Alert dialogs',
 			items: [
-				{item: 'Alert modal', action: 'AlertModal', persist: true},
-				{item: 'Alert', action: 'Alert'}
+				{item: 'Alert modal', action: bind(this, 'showMenu', '_alertModalDialog'), persist: true},
+				{item: 'Alert', action: bind(this, 'showMenu', '_alertDialog')}
 			],
 			closeCB: bind(this._mainMenu, 'show')
-		}).
-			on('AlertModal', bind(this, 'showMenu', '_alertModalDialog')).
-			on('Alert', bind(this, 'showMenu', '_alertDialog'));
+		});
 
 		this._alertModalDialog = new TextDialogView({
 			superview: this,
@@ -95,13 +133,11 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			title: 'Confirm dialogs',
 			items: [
-				{item: 'Confirm modal', action: 'ConfirmModal', persist: true},
-				{item: 'Confirm', action: 'Confirm'}
+				{item: 'Confirm modal', action: bind(this, 'showMenu', '_confirmModalDialog'), persist: true},
+				{item: 'Confirm', action: bind(this, 'showMenu', '_confirmDialog')}
 			],
 			closeCB: bind(this._mainMenu, 'show')
-		}).
-			on('ConfirmModal', bind(this, 'showMenu', '_confirmModalDialog')).
-			on('Confirm', bind(this, 'showMenu', '_confirmDialog'));
+		});
 
 		this._confirmModalDialog = new TextDialogView({
 			superview: this,
@@ -148,13 +184,11 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			title: 'Tutorial menu',
 			items: [
-				{item: 'Tutorial modal', action: 'TutorialModal', persist: true},
-				{item: 'Tutorial', action: 'Tutorial'}
+				{item: 'Tutorial modal', action: bind(this, 'showMenu', '_tutorialModalView'), persist: true},
+				{item: 'Tutorial', action: bind(this, 'showMenu', '_tutorialView')}
 			],
 			closeCB: bind(this._mainMenu, 'show')
-		}).
-			on('TutorialModal', bind(this, 'showMenu', '_tutorialModalView')).
-			on('Tutorial', bind(this, 'showMenu', '_tutorialView'));
+		});
 
 		this._tutorialModalView = new TutorialView({
 			superview: this,
@@ -172,17 +206,104 @@ exports = Class(GC.Application, function () {
 		}).on('Hide', bind(this, 'showMenu', '_tutorialMenu'));
 	};
 
+	this._createTransitionMenus = function () {
+		this._transitionsMenu = new MenuView({
+			superview: this,
+			title: 'Transitions',
+			items: [
+				{item: 'Slide', action: bind(this, 'showMenu', '_slideDialog')},
+				{item: 'Scale', action: bind(this, 'showMenu', '_scaleDialog')},
+				{item: 'Fade', action: bind(this, 'showMenu', '_fadeDialog')},
+				{item: 'Rotate', action: bind(this, 'showMenu', '_rotateDialog')},
+			],
+			closeCB: bind(this._mainMenu, 'show')
+		});
+
+		this._slideDialog = new TextDialogView({
+			superview: this,
+			title: 'Slide',
+			text: 'This menu uses a slide transition',
+			buttons: [
+				{
+					title: 'Ok',
+					width: 160,
+					color: 'GREEN',
+					cb: bind(this, 'showMenu', '_transitionsMenu')
+				}
+			],
+			showTransitionMethod: viewConstants.transitionMethod.SLIDE,
+			hideTransitionMethod: viewConstants.transitionMethod.SLIDE
+		});
+
+		this._scaleDialog = new TextDialogView({
+			superview: this,
+			title: 'Scale',
+			text: 'This menu uses a scale transition',
+			buttons: [
+				{
+					title: 'Ok',
+					width: 160,
+					color: 'GREEN',
+					cb: bind(this, 'showMenu', '_transitionsMenu')
+				}
+			],
+			showTransitionMethod: viewConstants.transitionMethod.SCALE,
+			hideTransitionMethod: viewConstants.transitionMethod.SCALE
+		});
+
+		this._fadeDialog = new TextDialogView({
+			superview: this,
+			title: 'Fade',
+			text: 'This menu uses a fade transition',
+			buttons: [
+				{
+					title: 'Ok',
+					width: 160,
+					color: 'GREEN',
+					cb: bind(this, 'showMenu', '_transitionsMenu')
+				}
+			],
+			closeCB: bind(this, 'showMenu', '_transitionsMenu'),
+			showTransitionMethod: viewConstants.transitionMethod.FADE,
+			hideTransitionMethod: viewConstants.transitionMethod.FADE
+		});
+
+		this._rotateDialog = new TextDialogView({
+			superview: this,
+			title: 'Rotate',
+			text: 'This menu uses a rotate transition',
+			buttons: [
+				{
+					title: 'Ok',
+					width: 160,
+					color: 'GREEN',
+					cb: bind(this, 'showMenu', '_transitionsMenu')
+				}
+			],
+			closeCB: bind(this, 'showMenu', '_transitionsMenu'),
+			showTransitionMethod: viewConstants.transitionMethod.ROTATE,
+			showTransitionTime: 1000,
+			hideTransitionMethod: viewConstants.transitionMethod.ROTATE,
+			hideTransitionTime: 1000
+		});
+	};
+
 	this.launchUI = function () {};
 
 	this.scaleUI = function () {
-		this.baseWidth = BOUNDS_WIDTH;
-		this.baseHeight = device.height * (BOUNDS_WIDTH / device.width);
-		this.scale = device.width / this.baseWidth;
-
+		if (device.height > device.width) {
+			this.baseWidth = BOUNDS_WIDTH;
+			this.baseHeight = device.height * (BOUNDS_WIDTH / device.width);
+			this.scale = device.width / this.baseWidth;
+		} else {
+			this.baseWidth = BOUNDS_HEIGHT;
+			this.baseHeight = device.height * (BOUNDS_HEIGHT / device.width);
+			this.scale = device.height / this.baseHeight;
+		}
 		this.view.style.scale = this.scale;
 	};
 
 	this.showMenu = function (menu) {
-		this[menu] && (typeof this[menu].show === 'function') && this[menu].show();
+		this[menu] && (typeof this[menu].show === 'function') && this[menu].show() || this._mainMenu.show();
 	};
 });

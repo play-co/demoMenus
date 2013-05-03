@@ -30,7 +30,8 @@ exports = Class(DialogView, function (supr) {
 			fontSize: contentStyle.FONT_SIZE,
 			textPadding: contentStyle.PADDING,
 			text: opts.text,
-			title: opts.title
+			title: opts.title,
+			closeCB: opts.closeCB ? bind(this, 'hide', opts.closeCB) : false
 		});
 		this._dialogView.text.updateOpts({
 			wrap: true,

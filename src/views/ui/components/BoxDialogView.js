@@ -1,4 +1,5 @@
 import ui.TextView as TextView;
+import ui.ImageView as ImageView;
 
 import src.constants.viewConstants as viewConstants;
 
@@ -46,6 +47,16 @@ exports = Class(BoxBorderView, function (supr) {
 				on: {
 					up: opts.closeCB
 				}
+			});
+		}
+		if (opts.icon || titleStyle.ICON) {
+			new ImageView({
+				superview: this.title,
+				x: 4,
+				y: 4,
+				width: 52,
+				height: 52,
+				image: opts.icon || titleStyle.ICON
 			});
 		}
 	};

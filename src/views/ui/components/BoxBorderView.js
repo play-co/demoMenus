@@ -31,9 +31,10 @@ exports = Class(ImageScaleView, function (supr) {
 				fontFamily: opts.fontFamily,
 				color: opts.textColor || '#000000',
 				strokeColor: opts.textOutline,
-				strokeWidth: 6,
+				strokeWidth: ('strokeWidth' in opts) ? opts.strokeWidth : 6,
 				buffer: false,
-				padding: opts.textPadding
+				padding: opts.textPadding,
+				horizontalAlign: opts.horizontalAlign || 'center'
 			});
 		}
 	};
