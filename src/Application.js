@@ -4,9 +4,6 @@ import ui.ImageView as ImageView;
 
 import src.constants.viewConstants as viewConstants;
 
-import src.views.ui.components.BoxBorderView as BoxBorderView;
-import src.views.ui.components.BoxDialogView as BoxDialogView;
-
 import src.views.ui.MenuView as MenuView;
 import src.views.ui.TextDialogView as TextDialogView;
 import src.views.ui.TutorialView as TutorialView;
