@@ -44,13 +44,15 @@ sliding, scaling, fading and rotating.
 
 All element which make up the menus and dialogs are based on 9-slice images.
 
-| Images | Size | Purpose |
-|-|-|-|
-|<img src="doc/background.png" width="40" height="40"/>| 40x40 | Background |
-|<img src="doc/item.png" width="40" height="40"/>| 40x40 | Item background, content backround |
-|<img src="doc/title.png" width="40" height="40"/>| 40x40 | Title background |
-|<img src="doc/button1Down.png" width="64" height="64"/> <img src="doc/button1Up.png" width="64" height="64"/>| 64x64 | Button background |
-|<img src="doc/button2Down.png" width="64" height="64"/> <img src="doc/button2Up.png" width="64" height="64"/>| 64x64 | Button background |
+~~~
+Images | Size | Purpose
+-|-|-
+<img src="doc/background.png" width="40" height="40"/>| 40x40 | Background
+<img src="doc/item.png" width="40" height="40"/>| 40x40 | Item background, content backround
+<img src="doc/title.png" width="40" height="40"/>| 40x40 | Title background
+<img src="doc/button1Down.png" width="64" height="64"/> <img src="doc/button1Up.png" width="64" height="64"/>| 64x64 | Button background
+<img src="doc/button2Down.png" width="64" height="64"/> <img src="doc/button2Up.png" width="64" height="64"/>| 64x64 | Button background
+~~~
 
 ### MenuView Class
 
