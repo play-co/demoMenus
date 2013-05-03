@@ -51,6 +51,11 @@ Parameters
   + `item {string}` ---The display title of the item
   + `action {string|function}` ---If it's a string then the value will be emitted else the function is invoked on clicking.
   + `persist {boolean}` ---Optional, If this values is `true` then the menu will not be hidden when the option is clicked.
+  + `text {string}` ---Optional, display a text instead of a clickable option.
+  + `image {string}` ---Optional, the path to an image to display instead of a clickable option.
+  + `width {number}` ---Optional, the width of the image defaults to 70.
+  + `height {number}` ---Optional, the height of the image defaults to 70.
+  + `align {string}` ---Optional, the horizontal alignment of the text or image, the default is `center` options are: `left`, `center` and `right`.
 
 ~~~
 import src.views.ui.MenuView as MenuView;
