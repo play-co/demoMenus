@@ -70,6 +70,12 @@ All element which make up the menus and dialogs are based on 9-slice images.
 		<td>resources/images/ui/title.png</td>
 	</tr>
 	<tr>
+		<td><img src="doc/components/contenBorder.png" width="40" height="40"/></td>
+		<td>40x40</td>
+		<td>Content frame</td>
+		<td>resources/images/ui/contenBorder.png</td>
+	</tr>
+	<tr>
 		<td><img src="doc/components/button1Up.png" width="64" height="64"/> <img src="doc/components/button1Down.png" width="64" height="64"/></td>
 		<td>64x64</td>
 		<td>Button background, up and down state</td>
