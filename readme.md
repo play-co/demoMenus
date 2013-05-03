@@ -70,14 +70,14 @@ new MenuView({
 
 #### Methods
 
-``show([cb])``
+__show([cb])__
 
 Parameters
  + `cb {function}` ---Optional, a callback invoked when the menu is visible.
 Returns
  {object} ---Returns the reference to the menu.
 
- ``hide([cb])``
+__hide([cb])__
 
 Parameters
  + `cb {function}` ---Optional, a callback invoked when the menu is hidden.
