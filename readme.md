@@ -154,9 +154,9 @@ Returns
 
 The `TutorialView` is a dialog to display a short animation.
 
-The (SpriteView)[http://docs.gameclosure.com/api/ui-spriteview.html] class is used to play the animation.
+The [SpriteView](http://docs.gameclosure.com/api/ui-spriteview.html) class is used to play the animation.
 
-<img src="doc/tutorial.png" width="480" height="320"/>
+<img src="doc/tutorial.png" width="320" height="480"/>
 
 Parameters
  + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
