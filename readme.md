@@ -40,9 +40,21 @@ option is selected.
 This demo offsers several transitions to show or hide menus:
 sliding, scaling, fading and rotating.
 
+## 9-Slice
+
+All element which make up the menus and dialogs are based on 9-slice images.
+
+| Images | Size | Purpose |
+|-|-|-|
+|<img src="doc/background.png" width="40" height="40"/>| 40x40 | Background |
+|<img src="doc/item.png" width="40" height="40"/>| 40x40 | Item background, content backround |
+|<img src="doc/title.png" width="40" height="40"/>| 40x40 | Title background |
+|<img src="doc/button1Down.png" width="64" height="64"/> <img src="doc/button1Up.png" width="64" height="64"/>| 64x64 | Button background |
+|<img src="doc/button2Down.png" width="64" height="64"/> <img src="doc/button2Up.png" width="64" height="64"/>| 64x64 | Button background |
+
 ### MenuView Class
 
-<img src="doc/menus.png" width="480" height="320" style="clear:both;"/>
+<img src="doc/menus.png" width="480" height="320"/><br />
 *A screenshot of the main menu*
 
 Parameters
@@ -101,10 +113,10 @@ Emitted then the menu is hidden.
 
 The `TextDialogView` class is a generic dialog which can be used to create a confirm or alert dialog.
 
-<img src="doc/confirm.png" width="480" height="320" style="clear:both;"/>
+<img src="doc/confirm.png" width="480" height="320"/><br />
 *A screenshot of a confirm dialog using the `TextDialogView` class*
 
-<img src="doc/alert.png" width="480" height="320" style="clear:both;"/>
+<img src="doc/alert.png" width="480" height="320"/><br />
 *A screenshot of an alert dialog using the `TextDialogView` class*
 
 Parameters
@@ -169,7 +181,7 @@ The `TutorialView` is a dialog to display a short animation.
 
 The [SpriteView](http://docs.gameclosure.com/api/ui-spriteview.html) class is used to play the animation.
 
-<img src="doc/tutorial.png" width="320" height="480" style="clear:both;"/>
+<img src="doc/tutorial.png" width="320" height="480"/><br />
 *A screenshot of a tutorial dialog*
 
 Parameters
