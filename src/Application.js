@@ -100,6 +100,7 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			title: 'Alert modal',
 			text: 'This menu is displayed on top of the dialogs menu',
+			width: 500,
 			modal: true,
 			buttons: [
 				{

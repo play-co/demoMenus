@@ -4,8 +4,8 @@ import src.constants.menuConstants as menuConstants;
 
 exports = Class(ButtonView, function (supr) {
 	this.init = function (opts) {
-		var color = opts.color || 'GREEN';
-		var buttonStyle = menuConstants.BUTTONS[color]; 
+		var style = opts.style || 'GREEN';
+		var buttonStyle = menuConstants.BUTTONS[style]; 
 
 		opts = merge(
 			opts,

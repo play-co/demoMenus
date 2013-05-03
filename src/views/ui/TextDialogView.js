@@ -12,6 +12,7 @@ import .components.DialogView as DialogView;
 exports = Class(DialogView, function (supr) {
 	this.init = function (opts) {
 		// Get the height from opts before the super init is executed!
+		var width = opts.width || GC.app.baseWidth - 80;
 		var height = opts.height || 400;
 
 		supr(this, 'init', arguments);
@@ -21,9 +22,9 @@ exports = Class(DialogView, function (supr) {
 		// The dialog containing the actual content...
 		this._dialogView = new BoxDialogView({
 			superview: this._dialogContainerView,
-			x: 40,
-			y: GC.app.baseHeight * 0.5 - height * 0.5,
-			width: GC.app.baseWidth - 80,
+			x: (GC.app.baseWidth - width) * 0.5,
+			y: (GC.app.baseHeight - height) * 0.5,
+			width: width,
 			height: height,
 			fontFamily: contentStyle.FONT_FAMILY,
 			fontSize: contentStyle.FONT_SIZE,

@@ -98,12 +98,15 @@ Emitted then the menu is hidden.
 
 ### TextDialogView Class
 
+The `TextDialogView` class is a generic dialog which can be used to create a confirm or alert dialog.
+
 <img src="doc/confirm.png" width="480" height="320"/>
 
 Parameters
  + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
  + `title {string}` ---The title displayed in the title bar of the menu.
  + `text {string}` ---The text displayed.
+ + `width {number}` ---Optional, the default value is the available screen width minus 80 pixels.
  + `height {number}` ---Optional, defaults to 400.
  + `modal {boolean}` ---Optional, if true then the background will be darkened.
  + `buttons {array}` ---A list of buttons displayed at the bottom of the dialog, the structure of the button item is:
