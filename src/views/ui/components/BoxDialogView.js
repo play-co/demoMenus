@@ -28,6 +28,27 @@ exports = Class(BoxBorderView, function (supr) {
 			textPadding: titleStyle.PADDING
 		});
 
+		if (opts.backCB) {
+			new ButtonView({
+				superview: this.title,
+				x: 4,
+				y: 4,
+				width: 52,
+				height: 52,
+				title: '',
+				color: 'GREEN',
+				icon: {
+					x: 7,
+					y: 7,
+					width: 38,
+					height: 38,
+					image: viewConstants.DIALOG.BACK
+				},
+				on: {
+					up: opts.backCB
+				}
+			});
+		}
 		if (opts.closeCB) {
 			new ButtonView({
 				superview: this.title,
@@ -42,21 +63,11 @@ exports = Class(BoxBorderView, function (supr) {
 					y: 7,
 					width: 38,
 					height: 38,
-					image: 'resources/images/ui/buttonClose.png'
+					image: viewConstants.DIALOG.CLOSE
 				},
 				on: {
 					up: opts.closeCB
 				}
-			});
-		}
-		if (opts.icon || titleStyle.ICON) {
-			new ImageView({
-				superview: this.title,
-				x: 4,
-				y: 4,
-				width: 52,
-				height: 52,
-				image: opts.icon || titleStyle.ICON
 			});
 		}
 	};

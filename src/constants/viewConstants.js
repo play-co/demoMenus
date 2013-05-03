@@ -13,7 +13,9 @@ exports.DIALOG = {
 	SHOW_TRANSITION_METHOD: exports.transitionMethod.SLIDE,
 	SHOW_TRANSITION_TIME: 300,
 	HIDE_TRANSITION_METHOD: exports.transitionMethod.SLIDE,
-	HIDE_TRANSITION_TIME: 300
+	HIDE_TRANSITION_TIME: 300,
+	BACK: 'resources/images/ui/buttonBack.png',
+	CLOSE: 'resources/images/ui/buttonClose.png'
 };
 
 exports.TUTORIAL = {

@@ -8,8 +8,7 @@ import src.constants.viewConstants as viewConstants;
 
 import .components.BoxBorderView as BoxBorderView;
 import .components.BoxDialogView as BoxDialogView;
-
-import .DialogView;
+import .components.DialogView as DialogView;
 
 exports = Class(DialogView, function (supr) {
 	this.init = function (opts) {
@@ -37,7 +36,8 @@ exports = Class(DialogView, function (supr) {
 			width: GC.app.baseWidth - 80,
 			height: height,
 			title: opts.title,
-			closeCB: opts.closeCB ? bind(this, 'hide', opts.closeCB) : false
+			closeCB: opts.closeCB ? bind(this, 'hide', opts.closeCB) : false,
+			backCB: opts.backCB ? bind(this, 'hide', opts.backCB) : false
 		});
 
 		this._items = [];

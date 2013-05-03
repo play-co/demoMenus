@@ -58,7 +58,7 @@ exports = Class(GC.Application, function () {
 				{item: 'Menu with text', action: bind(this, 'showMenu', '_menuTextMenu')},
 				{item: 'Menu with images', action: bind(this, 'showMenu', '_menuImageMenu')}
 			],
-			closeCB: bind(this._mainMenu, 'show')
+			backCB: bind(this._mainMenu, 'show')
 		});
 
 		this._menuTextMenu = new MenuView({
@@ -70,7 +70,7 @@ exports = Class(GC.Application, function () {
 				{text: 'Right aligned', align: 'right'},
 				{item: 'Back to menus', action: 'Back'}
 			],
-			closeCB: bind(this, 'showMenu', '_menusMenu')
+			backCB: bind(this, 'showMenu', '_menusMenu')
 		}).
 			on('Back', bind(this, 'showMenu', '_menusMenu'));
 
@@ -83,7 +83,7 @@ exports = Class(GC.Application, function () {
 				{image: 'resources/images/ui/gc96.png', height: 96, width: 96, align: 'right'},
 				{item: 'Back to menus', action: 'Back'}
 			],
-			closeCB: bind(this, 'showMenu', '_menusMenu')
+			backCB: bind(this, 'showMenu', '_menusMenu')
 		}).
 			on('Back', bind(this, 'showMenu', '_menusMenu'));
 	};
@@ -96,7 +96,7 @@ exports = Class(GC.Application, function () {
 				{item: 'Alert modal', action: bind(this, 'showMenu', '_alertModalDialog'), persist: true},
 				{item: 'Alert', action: bind(this, 'showMenu', '_alertDialog')}
 			],
-			closeCB: bind(this._mainMenu, 'show')
+			backCB: bind(this._mainMenu, 'show')
 		});
 
 		this._alertModalDialog = new TextDialogView({
@@ -125,7 +125,7 @@ exports = Class(GC.Application, function () {
 					cb: bind(this, 'showMenu', '_alertDialogsMenu')
 				}
 			]
-		});
+		}).on('Hide', bind(this, 'showMenu', '_alertDialogsMenu'));
 	};
 
 	this._createConfirmMenus = function () {
@@ -136,7 +136,7 @@ exports = Class(GC.Application, function () {
 				{item: 'Confirm modal', action: bind(this, 'showMenu', '_confirmModalDialog'), persist: true},
 				{item: 'Confirm', action: bind(this, 'showMenu', '_confirmDialog')}
 			],
-			closeCB: bind(this._mainMenu, 'show')
+			backCB: bind(this._mainMenu, 'show')
 		});
 
 		this._confirmModalDialog = new TextDialogView({
@@ -176,7 +176,7 @@ exports = Class(GC.Application, function () {
 					cb: bind(this, 'showMenu', '_confirmDialogsMenu')
 				}
 			]
-		});
+		}).on('Hide', bind(this, 'showMenu', '_confirmDialogsMenu'));
 	};
 
 	this._createTutorialMenus = function () {
@@ -187,7 +187,7 @@ exports = Class(GC.Application, function () {
 				{item: 'Tutorial modal', action: bind(this, 'showMenu', '_tutorialModalView'), persist: true},
 				{item: 'Tutorial', action: bind(this, 'showMenu', '_tutorialView')}
 			],
-			closeCB: bind(this._mainMenu, 'show')
+			backCB: bind(this._mainMenu, 'show')
 		});
 
 		this._tutorialModalView = new TutorialView({
@@ -216,7 +216,7 @@ exports = Class(GC.Application, function () {
 				{item: 'Fade', action: bind(this, 'showMenu', '_fadeDialog')},
 				{item: 'Rotate', action: bind(this, 'showMenu', '_rotateDialog')},
 			],
-			closeCB: bind(this._mainMenu, 'show')
+			backCB: bind(this._mainMenu, 'show')
 		});
 
 		this._slideDialog = new TextDialogView({
@@ -233,7 +233,7 @@ exports = Class(GC.Application, function () {
 			],
 			showTransitionMethod: viewConstants.transitionMethod.SLIDE,
 			hideTransitionMethod: viewConstants.transitionMethod.SLIDE
-		});
+		}).on('Hide', bind(this, 'showMenu', '_transitionsMenu'));
 
 		this._scaleDialog = new TextDialogView({
 			superview: this,
@@ -249,7 +249,7 @@ exports = Class(GC.Application, function () {
 			],
 			showTransitionMethod: viewConstants.transitionMethod.SCALE,
 			hideTransitionMethod: viewConstants.transitionMethod.SCALE
-		});
+		}).on('Hide', bind(this, 'showMenu', '_transitionsMenu'));
 
 		this._fadeDialog = new TextDialogView({
 			superview: this,
@@ -266,7 +266,7 @@ exports = Class(GC.Application, function () {
 			closeCB: bind(this, 'showMenu', '_transitionsMenu'),
 			showTransitionMethod: viewConstants.transitionMethod.FADE,
 			hideTransitionMethod: viewConstants.transitionMethod.FADE
-		});
+		}).on('Hide', bind(this, 'showMenu', '_transitionsMenu'));
 
 		this._rotateDialog = new TextDialogView({
 			superview: this,
@@ -285,7 +285,7 @@ exports = Class(GC.Application, function () {
 			showTransitionTime: 1000,
 			hideTransitionMethod: viewConstants.transitionMethod.ROTATE,
 			hideTransitionTime: 1000
-		});
+		}).on('Hide', bind(this, 'showMenu', '_transitionsMenu'));
 	};
 
 	this.launchUI = function () {};

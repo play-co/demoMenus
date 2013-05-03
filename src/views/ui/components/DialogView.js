@@ -139,9 +139,19 @@ exports = Class(View, function (supr) {
 
 		if (a) {
 			a = a.then(bind(this, function () { this.style.visible = false}), 1);
-			cb && a.then(cb, 1);
+			a.then(
+				bind(
+					this,
+					function () {
+						cb && cb();
+						this.emit('Hide');
+					}
+				),
+				1
+			);
 		} else if (cb) {
 			cb();
+			this.emit('Hide');
 		}
 
 		return this;

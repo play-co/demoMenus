@@ -8,8 +8,7 @@ import src.constants.viewConstants as viewConstants;
 
 import .components.BoxDialogView as BoxDialogView;
 import .components.ButtonView as ButtonView;
-
-import .DialogView;
+import .components.DialogView as DialogView;
 
 var TutorialSpriteView = Class(SpriteView, function (supr) {
 	this.getSize = function () {

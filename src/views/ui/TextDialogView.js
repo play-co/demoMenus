@@ -7,8 +7,7 @@ import src.constants.viewConstants as viewConstants;
 import .components.BoxBorderView as BoxBorderView;
 import .components.BoxDialogView as BoxDialogView;
 import .components.ButtonView as ButtonView;
-
-import .DialogView;
+import .components.DialogView as DialogView;
 
 exports = Class(DialogView, function (supr) {
 	this.init = function (opts) {
@@ -31,7 +30,7 @@ exports = Class(DialogView, function (supr) {
 			textPadding: contentStyle.PADDING,
 			text: opts.text,
 			title: opts.title,
-			closeCB: opts.closeCB ? bind(this, 'hide', opts.closeCB) : false
+			closeCB: bind(this, 'hide', opts.closeCB)
 		});
 		this._dialogView.text.updateOpts({
 			wrap: true,
