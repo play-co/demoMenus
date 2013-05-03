@@ -113,6 +113,7 @@ exports = Class(GC.Application, function () {
 
 		this._alertDialog = new TextDialogView({
 			superview: this,
+			width: 500,
 			title: 'Alert',
 			text: 'This menu is displayed after the dialogs menu was closed',
 			buttons: [
@@ -141,6 +142,7 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			title: 'Confirm modal',
 			text: 'Can you confirm one of these?',
+			height: device.width > device.height ? 300 : 400,
 			modal: true,
 			buttons: [
 				{
@@ -158,8 +160,9 @@ exports = Class(GC.Application, function () {
 
 		this._confirmDialog = new TextDialogView({
 			superview: this,
-			title: 'Confirm modal',
+			title: 'Confirm',
 			text: 'Can you confirm one of these?',
+			height: device.width > device.height ? 300 : 400,
 			buttons: [
 				{
 					title: 'Green',

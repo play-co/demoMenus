@@ -43,6 +43,7 @@ sliding, scaling, fading and rotating.
 ### MenuView Class
 
 <img src="doc/menus.png" width="480" height="320"/>
+*A screenshot of the main menu*
 
 Parameters
  + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
@@ -53,8 +54,8 @@ Parameters
   + `persist {boolean}` ---Optional, If this values is `true` then the menu will not be hidden when the option is clicked.
   + `text {string}` ---Optional, display a text instead of a clickable option.
   + `image {string}` ---Optional, the path to an image to display instead of a clickable option.
-  + `width {number}` ---Optional, the width of the image defaults to 70.
-  + `height {number}` ---Optional, the height of the image defaults to 70.
+  + `width {number} = 70` ---Optional, the width of the image.
+  + `height {number} = 70` ---Optional, the height of the image.
   + `align {string}` ---Optional, the horizontal alignment of the text or image, the default is `center` options are: `left`, `center` and `right`.
 
 ~~~
@@ -101,13 +102,17 @@ Emitted then the menu is hidden.
 The `TextDialogView` class is a generic dialog which can be used to create a confirm or alert dialog.
 
 <img src="doc/confirm.png" width="480" height="320"/>
+*A screenshot of a confirm dialog using the `TextDialogView` class*
+
+<img src="doc/alert.png" width="480" height="320"/>
+*A screenshot of an alert dialog using the `TextDialogView` class*
 
 Parameters
  + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
  + `title {string}` ---The title displayed in the title bar of the menu.
  + `text {string}` ---The text displayed.
  + `width {number}` ---Optional, the default value is the available screen width minus 80 pixels.
- + `height {number}` ---Optional, defaults to 400.
+ + `height {number} = 400` ---Optional, the width of the dialog.
  + `modal {boolean}` ---Optional, if true then the background will be darkened.
  + `buttons {array}` ---A list of buttons displayed at the bottom of the dialog, the structure of the button item is:
   + `title {string}` ---The title of the button.
