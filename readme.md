@@ -70,31 +70,31 @@ All element which make up the menus and dialogs are based on 9-slice images.
 		<td>resources/images/ui/title.png</td>
 	</tr>
 	<tr>
-		<td><img src="doc/components/button1Down.png" width="64" height="64"/> <img src="doc/components/button1Up.png" width="64" height="64"/></td>
+		<td><img src="doc/components/button1Up.png" width="64" height="64"/> <img src="doc/components/button1Down.png" width="64" height="64"/></td>
 		<td>64x64</td>
-		<td>Button background</td>
+		<td>Button background, up and down state</td>
 		<td>resources/images/ui/button1Down.png</td>
 	</tr>
 	<tr>
-		<td><img src="doc/components/button2Down.png" width="64" height="64"/> <img src="doc/components/button2Up.png" width="64" height="64"/></td>
+		<td><img src="doc/components/button2Up.png" width="64" height="64"/> <img src="doc/components/button2Down.png" width="64" height="64"/></td>
 		<td>64x64</td>
-		<td>Button background</td>
+		<td>Button background, up and down state</td>
 		<td>resources/images/ui/button2Down.png</td>
 	</tr>
 	<tr>
 		<td><img src="doc/components/buttonBack.png" width="40" height="40"/></td>
 		<td>40x40</td>
-		<td>Back button</td>
+		<td>Icon for back button</td>
 		<td>resources/images/ui/buttonBack.png</td>
 	</tr>
 	<tr>
 		<td><img src="doc/components/buttonClose.png" width="40" height="40"/></td>
 		<td>40x40</td>
-		<td>Close button</td>
+		<td>Icon for close button</td>
 		<td>resources/images/ui/buttonClose.png</td>
 	</tr>
 	<tr>
-		<td><img src="doc/components/menuBackground.png" width="99" height="177"/></td>
+		<td><img src="doc/components/menuBackground.png" width="50" height="90"/></td>
 		<td>576x1024</td>
 		<td>Menu background</td>
 		<td>resources/images/ui/menuBackground.png</td>
