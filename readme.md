@@ -42,7 +42,7 @@ sliding, scaling, fading and rotating.
 
 ### MenuView Class
 
-<img src="doc/menus.png" width="480" height="320"/>
+<img src="doc/menus.png" width="480" height="320" style="clear:both;"/>
 *A screenshot of the main menu*
 
 Parameters
@@ -101,10 +101,10 @@ Emitted then the menu is hidden.
 
 The `TextDialogView` class is a generic dialog which can be used to create a confirm or alert dialog.
 
-<img src="doc/confirm.png" width="480" height="320"/>
+<img src="doc/confirm.png" width="480" height="320" style="clear:both;"/>
 *A screenshot of a confirm dialog using the `TextDialogView` class*
 
-<img src="doc/alert.png" width="480" height="320"/>
+<img src="doc/alert.png" width="480" height="320" style="clear:both;"/>
 *A screenshot of an alert dialog using the `TextDialogView` class*
 
 Parameters
@@ -169,7 +169,8 @@ The `TutorialView` is a dialog to display a short animation.
 
 The [SpriteView](http://docs.gameclosure.com/api/ui-spriteview.html) class is used to play the animation.
 
-<img src="doc/tutorial.png" width="320" height="480"/>
+<img src="doc/tutorial.png" width="320" height="480" style="clear:both;"/>
+*A screenshot of a tutorial dialog*
 
 Parameters
  + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
