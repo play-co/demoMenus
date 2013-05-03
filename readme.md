@@ -40,7 +40,7 @@ option is selected.
 This demo offsers several transitions to show or hide menus:
 sliding, scaling, fading and rotating.
 
-## 9-Slice
+## 9-Slice images
 
 All element which make up the menus and dialogs are based on 9-slice images.
 
@@ -106,6 +106,12 @@ All element which make up the menus and dialogs are based on 9-slice images.
 		<td>resources/images/ui/menuBackground.png</td>
 	</tr>
 </table>
+
+## Configuration
+
+Many of the look and behaviour properties can be configured with a global configuration file,
+`src.constants.menuConstants.js`.
+All images names and paths which are used in the menu system are defined here.
 
 ### MenuView Class
 

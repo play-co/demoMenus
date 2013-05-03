@@ -10,6 +10,7 @@ exports.transitionMethod = Enum(
 
 exports.DIALOG = {
 	BACKGROUND: 'resources/images/ui/background.png',
+	CONTENT_BORDER: 'resources/images/ui/contenBorder.png',
 	SHOW_TRANSITION_METHOD: exports.transitionMethod.SLIDE,
 	SHOW_TRANSITION_TIME: 300,
 	HIDE_TRANSITION_METHOD: exports.transitionMethod.SLIDE,
@@ -45,7 +46,8 @@ exports.MENU_ITEM = {
 	FONT_SIZE: 36,
 	PADDING: [0, 0, 10, 0],
 	COLOR: 'rgb(255, 255, 255)',
-	STROKE_COLOR: '#9A833E'
+	STROKE_COLOR: '#9A833E',
+	STROKE_WIDTH: 6
 };
 
 exports.TITLE = {

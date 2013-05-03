@@ -103,6 +103,7 @@ exports = Class(DialogView, function (supr) {
 					textPadding: itemStyle.PADDING,
 					textColor: itemStyle.COLOR,
 					textOutline: itemStyle.STROKE_COLOR,
+					strokeWidth: itemStyle.STROKE_WIDTH,
 					horizontalAlign: item.align || itemStyle.ALIGN || 'center'
 				});
 

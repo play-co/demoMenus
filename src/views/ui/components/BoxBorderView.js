@@ -32,7 +32,7 @@ exports = Class(ImageScaleView, function (supr) {
 				color: opts.textColor || '#000000',
 				strokeColor: opts.textOutline,
 				strokeWidth: ('strokeWidth' in opts) ? opts.strokeWidth : 6,
-				buffer: false,
+				buffer: true,
 				padding: opts.textPadding,
 				horizontalAlign: opts.horizontalAlign || 'center'
 			});

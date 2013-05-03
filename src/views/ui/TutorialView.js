@@ -84,7 +84,7 @@ exports = Class(DialogView, function (supr) {
 			y: 85 - 2,
 			width: availableWidth + 4,
 			height: availableHeight + 4,
-			image: 'resources/images/ui/contenBorder.png',
+			image: menuConstants.DIALOG.CONTENT_BORDER,
 			scaleMethod: '9slice',
 			sourceSlices: {
 				horizontal: {left: 16, center: 8, right: 16},
