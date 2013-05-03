@@ -52,7 +52,7 @@ Parameters
  + `title {string}` ---The title displayed in the title bar of the menu
  + `items {array}` ---A list of menu items, the structure of the item is:
   + `item {string}` ---The display title of the item
-  + `action {string|function}` ---If it's a string then the value will be emitted else the function is invoced on clicking.
+  + `action {string|function}` ---If it's a string then the value will be emitted else the function is invoked on clicking.
   + `persist {boolean}` ---Optional, If this values is `true` then the menu will not be hidden when the option is clicked.
 
 ~~~
@@ -67,3 +67,19 @@ new MenuView({
 	]
 }).show();
 ~~~
+
+#### Methods
+
+``show([cb])``
+
+Parameters
+ + `cb {function}` ---Optional, a callback invoked when the menu is visible.
+Returns
+ {object} ---Returns the reference to the menu.
+
+ ``hide([cb])``
+
+Parameters
+ + `cb {function}` ---Optional, a callback invoked when the menu is hidden.
+Returns
+ {object} ---Returns the reference to the menu.
