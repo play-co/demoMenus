@@ -91,7 +91,9 @@ __Hide__
 
 Emitted then the menu is hidden.
 
-<img src="doc/menus.png" width="480" height="320"/>
+### TextDialogView Class
+
+<img src="doc/confirm.png" width="480" height="320"/>
 
 Parameters
  + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
@@ -119,7 +121,7 @@ new TextDialogView({
 			style: 'GREEN'
 		}
 	]
-});
+}).show();
 ~~~
 
 #### Methods
@@ -133,6 +135,36 @@ __setTitle(text)__
 
 Parameters
  + `text {string}` ---Sets the title of the dialog
+
+__show([cb])__
+
+Parameters
+ + `cb {function}` ---Optional, a callback invoked when the menu is visible.
+Returns
+ {object} ---Returns the reference to the menu.
+
+__hide([cb])__
+
+Parameters
+ + `cb {function}` ---Optional, a callback invoked when the menu is hidden.
+Returns
+ {object} ---Returns the reference to the menu.
+
+### TutorialView Class
+
+The `TutorialView` is a dialog to display a short animation.
+
+The (SpriteView)[http://docs.gameclosure.com/api/ui-spriteview.html] class is used to play the animation.
+
+<img src="doc/tutorial.png" width="480" height="320"/>
+
+Parameters
+ + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
+ + `title {string}` ---The title displayed in the title bar of the menu.
+ + `url {string}` ---The path to the animation.
+ + `animation {string}` ---The animation which is played.
+
+#### Methods
 
 __show([cb])__
 
