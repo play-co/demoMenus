@@ -115,8 +115,12 @@ All images names and paths which are used in the menu system are defined here.
 
 ### MenuView Class
 
-<img src="doc/screenshots/menus.png" width="480" height="320"/><br />
+<img src="doc/screenshots/menus.png" width="240" height="160"/><br />
 *A screenshot of the main menu*
+<img src="doc/screenshots/text.png" width="240" height="160"/><br />
+*A screenshot of a menu with text items*
+<img src="doc/screenshots/image.png" width="240" height="160"/><br />
+*A screenshot of a menu with image items*
 
 Parameters
  + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
