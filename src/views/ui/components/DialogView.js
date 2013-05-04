@@ -77,7 +77,7 @@ exports = Class(View, function (supr) {
 
 			case menuConstants.transitionMethod.ROTATE:
 				dialogContainerStyle.x = 0;
-				dialogContainerStyle.anchorX = 0;
+				dialogContainerStyle.anchorX = dialogContainerStyle.width * 0.5;
 				dialogContainerStyle.anchorY = 0;
 				dialogContainerStyle.r = -Math.PI;
 				dialogContainerStyle.opacity = 1;
