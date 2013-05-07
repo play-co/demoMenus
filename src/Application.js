@@ -1,5 +1,8 @@
+import animate;
+
 import device;
 
+import ui.View as View;
 import ui.ImageView as ImageView;
 
 import src.constants.menuConstants as menuConstants;
@@ -10,6 +13,33 @@ import src.views.ui.TutorialView as TutorialView;
 
 var BOUNDS_WIDTH = 576;
 var BOUNDS_HEIGHT = 1024;
+
+var CustomMenuView = Class(TextDialogView, function (supr) {
+	this.init = function (opts) {
+		delete opts.text;
+
+		supr(this, 'init', [opts]);
+
+		var content = this._dialogView.content;
+		this._view = new View({
+			superview: content,
+			x: 10,
+			y: 10,
+			width: 10,
+			height: content.style.height - 20,
+			backgroundColor: 'red'
+		});
+		this._startAnimation();
+	};
+
+	this._startAnimation = function () {
+		var content = this._dialogView.content;
+		animate(this._view).
+			then({x: content.style.width - 20}, 1000).
+			then({x: 10}, 1000).
+			then(bind(this, '_startAnimation'), 10);
+	};
+});
 
 exports = Class(GC.Application, function () {
 
@@ -30,6 +60,7 @@ exports = Class(GC.Application, function () {
 		this._createAlertMenus();
 		this._createTutorialMenus();
 		this._createConfirmMenus();
+		this._createCustomMenus();
 		this._createTransitionMenus();
 	};
 
@@ -42,6 +73,7 @@ exports = Class(GC.Application, function () {
 				{item: 'Alert dialogs', action: bind(this, 'showMenu', '_alertDialogsMenu')},
 				{item: 'Confirm dialogs', action: bind(this, 'showMenu', '_confirmDialogsMenu')},
 				{item: 'Tutorial dialog', action: bind(this, 'showMenu', '_tutorialMenu')},
+				{item: 'Custom dialog', action: bind(this, 'showMenu', '_customMenuView')},
 				{item: 'Transitions', action: bind(this, 'showMenu', '_transitionsMenu')}
 			]
 		}).show();
@@ -205,6 +237,22 @@ exports = Class(GC.Application, function () {
 			url: 'resources/images/tutorial/tutorial',
 			animation: 'swipe'
 		}).on('Hide', bind(this, 'showMenu', '_tutorialMenu'));
+	};
+
+	this._createCustomMenus = function () {
+		this._customMenuView = new CustomMenuView({
+			superview: this,
+			title: 'Custom menu',
+			buttons: [
+				{
+					title: 'Ok',
+					width: 160,
+					style: 'GREEN',
+					cb: bind(this, 'showMenu', '_mainMenu')
+				}
+			],
+			closeCB: bind(this, 'showMenu', '_mainMenu')
+		});
 	};
 
 	this._createTransitionMenus = function () {

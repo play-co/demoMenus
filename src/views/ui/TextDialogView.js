@@ -29,7 +29,7 @@ exports = Class(DialogView, function (supr) {
 			fontFamily: contentStyle.FONT_FAMILY,
 			fontSize: contentStyle.FONT_SIZE,
 			textPadding: contentStyle.PADDING,
-			text: opts.text,
+			text: opts.text || '',
 			title: opts.title,
 			closeCB: bind(this, 'hide', opts.closeCB)
 		});
