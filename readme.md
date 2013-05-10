@@ -53,7 +53,7 @@ All element which make up the menus and dialogs are based on 9-slice images.
 	</tr>
 	<tr>
 		<td><img src="doc/components/background.png" width="40" height="40"/></td>
-		<td>40x40</td>
+		<td>70x70</td>
 		<td>Background</td>
 		<td>resources/images/ui/background.png</td>
 	</tr>
