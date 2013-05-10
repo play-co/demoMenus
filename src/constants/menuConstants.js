@@ -126,7 +126,7 @@ exports.BUTTONS = {
 		FONT_FAMILY: 'BPReplay',
 		FONT_SIZE: 36,
 		COLOR: 'rgb(255, 255, 255)',
-		STROKE_COLOR: 'rgb(15, 111, 55)',
+		STROKE_COLOR: 'rgb(111, 15, 55)',
 		STROKE_WIDTH: 6
 	}
 };
