@@ -7,9 +7,9 @@ import src.constants.menuConstants as menuConstants;
 import .components.BoxBorderView as BoxBorderView;
 import .components.BoxDialogView as BoxDialogView;
 import .components.ButtonView as ButtonView;
-import .components.DialogView as DialogView;
+import .components.DialogBackgroundView as DialogBackgroundView;
 
-exports = Class(DialogView, function (supr) {
+exports = Class(DialogBackgroundView, function (supr) {
 	this.init = function (opts) {
 		// Get the height from opts before the super init is executed!
 		var width = opts.width || GC.app.baseWidth - 80;

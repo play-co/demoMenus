@@ -125,7 +125,37 @@ Many of the look and behaviour properties can be configured with a global config
 `src.constants.menuConstants.js`.
 All images names and paths which are used in the menu system are defined here.
 
+### DialogBackgroundView Class
+
+The `DialogBackgroundView` class is the super class for all dialogs listed here. It's purpose is to handle
+transitions, create an opaque background and prevent clicks on items behind the dialog.
+
+Parameters
+ + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
+ + `showTransitionMethod {number} = menuConstants.transitionMethod.SLIDE` ---Optional, method to use for showing
+ + `showTransitionTime {number} = menuConstants.DIALOG.SHOW_TRANSITION_TIME` ---Optional, transition duration for showing
+ + `hideTransitionMethod {number} = menuConstants.transitionMethod.SLIDE` ---Optional, method to use for hiding
+ + `hideTransitionTime {number} = menuConstants.DIALOG.HIDE_TRANSITION_TIME` ---Optional, transition duration for hiding
+
+#### Methods
+
+__show([cb])__
+
+Parameters
+ + `cb {function}` ---Optional, a callback invoked when the menu is visible.
+Returns
+ {object} ---Returns the reference to the menu.
+
+__hide([cb])__
+
+Parameters
+ + `cb {function}` ---Optional, a callback invoked when the menu is hidden.
+Returns
+ {object} ---Returns the reference to the menu.
+
 ### MenuView Class
+
+extends `DialogBackgroundView`
 
 <img src="doc/screenshots/menus.png" width="480" height="320"/>
 *Screenshot of the main menu*
@@ -156,23 +186,9 @@ new MenuView({
 }).show();
 ~~~
 
-#### Methods
-
-__show([cb])__
-
-Parameters
- + `cb {function}` ---Optional, a callback invoked when the menu is visible.
-Returns
- {object} ---Returns the reference to the menu.
-
-__hide([cb])__
-
-Parameters
- + `cb {function}` ---Optional, a callback invoked when the menu is hidden.
-Returns
- {object} ---Returns the reference to the menu.
-
 ### TextDialogView Class
+
+extends `DialogBackgroundView`
 
 #### Events
 
@@ -234,21 +250,9 @@ __setTitle(text)__
 Parameters
  + `text {string}` ---Sets the title of the dialog
 
-__show([cb])__
-
-Parameters
- + `cb {function}` ---Optional, a callback invoked when the menu is visible.
-Returns
- {object} ---Returns the reference to the menu.
-
-__hide([cb])__
-
-Parameters
- + `cb {function}` ---Optional, a callback invoked when the menu is hidden.
-Returns
- {object} ---Returns the reference to the menu.
-
 ### TutorialView Class
+
+extends `DialogBackgroundView`
 
 The `TutorialView` is a dialog to display a short animation.
 
@@ -262,19 +266,3 @@ Parameters
  + `title {string}` ---The title displayed in the title bar of the menu.
  + `url {string}` ---The path to the animation.
  + `animation {string}` ---The animation which is played.
-
-#### Methods
-
-__show([cb])__
-
-Parameters
- + `cb {function}` ---Optional, a callback invoked when the menu is visible.
-Returns
- {object} ---Returns the reference to the menu.
-
-__hide([cb])__
-
-Parameters
- + `cb {function}` ---Optional, a callback invoked when the menu is hidden.
-Returns
- {object} ---Returns the reference to the menu.

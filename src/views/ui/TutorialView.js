@@ -8,7 +8,7 @@ import src.constants.menuConstants as menuConstants;
 
 import .components.BoxDialogView as BoxDialogView;
 import .components.ButtonView as ButtonView;
-import .components.DialogView as DialogView;
+import .components.DialogBackgroundView as DialogBackgroundView;
 
 var TutorialSpriteView = Class(SpriteView, function (supr) {
 	this.getSize = function () {
@@ -22,7 +22,7 @@ var TutorialSpriteView = Class(SpriteView, function (supr) {
 	};
 });
 
-exports = Class(DialogView, function (supr) {
+exports = Class(DialogBackgroundView, function (supr) {
 	this.init = function (opts) {
 		// Get the height from opts before the super init is executed!
 		var height = opts.height || GC.app.baseHeight * 0.8;

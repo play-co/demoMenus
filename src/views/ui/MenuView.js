@@ -8,9 +8,9 @@ import src.constants.menuConstants as menuConstants;
 
 import .components.BoxBorderView as BoxBorderView;
 import .components.BoxDialogView as BoxDialogView;
-import .components.DialogView as DialogView;
+import .components.DialogBackgroundView as DialogBackgroundView;
 
-exports = Class(DialogView, function (supr) {
+exports = Class(DialogBackgroundView, function (supr) {
 	this.init = function (opts) {
 		supr(this, 'init', arguments);
 

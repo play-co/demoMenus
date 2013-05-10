@@ -16,7 +16,7 @@ exports.DIALOG = {
 	HIDE_TRANSITION_METHOD: exports.transitionMethod.SLIDE,
 	HIDE_TRANSITION_TIME: 300,
 	BACK: {
-		MARGIN_LEFT: 1,
+		MARGIN_LEFT: 2,
 		MARGIN_TOP: 4,
 		WIDTH: 55,
 		HEIGHT: 55,
@@ -30,7 +30,7 @@ exports.DIALOG = {
 		}
 	},
 	CLOSE: {
-		MARGIN_RIGHT: 1,
+		MARGIN_RIGHT: 2,
 		MARGIN_TOP: 4,
 		WIDTH: 55,
 		HEIGHT: 55,
