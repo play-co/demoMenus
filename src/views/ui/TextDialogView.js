@@ -17,7 +17,7 @@ exports = Class(DialogView, function (supr) {
 
 		supr(this, 'init', arguments);
 
-		var contentStyle = menuConstants.CONTENT;
+		var contentStyle = menuConstants.DIALOG.CONTENT;
 
 		// The dialog containing the actual content...
 		this._dialogView = new BoxDialogView({
@@ -35,30 +35,31 @@ exports = Class(DialogView, function (supr) {
 		});
 		this._dialogView.text.updateOpts({
 			wrap: true,
-			x: 10,
-			y: 80,
-			width: this._dialogView.style.width - 20,
-			height: height - 164
+			x: contentStyle.MARGIN_LEFT,
+			y: contentStyle.MARGIN_TOP,
+			width: this._dialogView.style.width - contentStyle.MARGIN_LEFT - contentStyle.MARGIN_RIGHT,
+			height: height - contentStyle.MARGIN_TOP - contentStyle.MARGIN_BOTTOM
 		});
 
 		this._dialogView.content = new BoxBorderView({
 			superview: this._dialogView,
-			x: 10,
-			y: 80,
+			x: contentStyle.MARGIN_LEFT,
+			y: contentStyle.MARGIN_TOP,
 			image: contentStyle.BACKGROUND,
-			width: this._dialogView.style.width - 20,
-			height: height - 164,
+			width: this._dialogView.style.width - contentStyle.MARGIN_LEFT - contentStyle.MARGIN_RIGHT,
+			height: height - contentStyle.MARGIN_TOP - contentStyle.MARGIN_BOTTOM,
 			zIndex: -1
 		});
 
 		var buttons =  opts.buttons;
+		var buttonStyle = menuConstants.DIALOG.BUTTON;
 
 		this.buttons = [];
 
 		// Calculate the total width of the buttons...
-		var width = -10;
+		var width = -buttonStyle.MARGIN_RIGHT;
 		for (var i = 0; i < buttons.length; i++) {
-			width += buttons[i].width + 10;
+			width += buttons[i].width + buttonStyle.MARGIN_RIGHT;
 		}
 		var x = (this._dialogView.style.width - width) * 0.5;
 
@@ -69,16 +70,16 @@ exports = Class(DialogView, function (supr) {
 					new ButtonView({
 						superview: this._dialogView,
 						x: x,
-						y: height - 74,
+						y: height - buttonStyle.HEIGHT - buttonStyle.MARGIN_BOTTOM,
 						width: button.width,
-						height: 64,
+						height: buttonStyle.HEIGHT,
 						title: button.title,
 						style: button.style || 'BLUE',
 						on: {
 							up: bind(this, 'hide', button.cb)
 						}
 					});
-					x += button.width + 10;
+					x += button.width + buttonStyle.MARGIN_RIGHT;
 				}
 			)(buttons[i]);
 		}

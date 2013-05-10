@@ -174,7 +174,7 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			title: 'Confirm modal',
 			text: 'Can you confirm one of these?',
-			height: device.width > device.height ? 300 : 400,
+			height: device.width > device.height ? 350 : 450,
 			modal: true,
 			buttons: [
 				{
@@ -194,7 +194,7 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			title: 'Confirm',
 			text: 'Can you confirm one of these?',
-			height: device.width > device.height ? 300 : 400,
+			height: device.width > device.height ? 350 : 450,
 			buttons: [
 				{
 					title: 'Green',

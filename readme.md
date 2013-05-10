@@ -59,31 +59,43 @@ All element which make up the menus and dialogs are based on 9-slice images.
 	</tr>
 	<tr>
 		<td><img src="doc/components/item.png" width="40" height="40"/></td>
-		<td>40x40</td>
-		<td>Item background, content backround</td>
+		<td>70x70</td>
+		<td>Item background, content background</td>
 		<td>resources/images/ui/item.png</td>
 	</tr>
 	<tr>
+		<td><img src="doc/components/buttonItem.png" width="40" height="40"/></td>
+		<td>70x70</td>
+		<td>Menu item background</td>
+		<td>resources/images/ui/buttonItem.png</td>
+	</tr>
+	<tr>
 		<td><img src="doc/components/title.png" width="40" height="40"/></td>
-		<td>40x40</td>
+		<td>70x70</td>
 		<td>Title background</td>
 		<td>resources/images/ui/title.png</td>
 	</tr>
 	<tr>
-		<td><img src="doc/components/contenBorder.png" width="40" height="40"/></td>
-		<td>40x40</td>
+		<td><img src="doc/components/contentBorder.png" width="40" height="40"/></td>
+		<td>70x70</td>
 		<td>Content frame</td>
-		<td>resources/images/ui/contenBorder.png</td>
+		<td>resources/images/ui/contentBorder.png</td>
 	</tr>
 	<tr>
 		<td><img src="doc/components/button1Up.png" width="64" height="64"/> <img src="doc/components/button1Down.png" width="64" height="64"/></td>
-		<td>64x64</td>
+		<td>70x70</td>
 		<td>Button background, up and down state</td>
 		<td>resources/images/ui/button1Down.png</td>
 	</tr>
 	<tr>
 		<td><img src="doc/components/button2Up.png" width="64" height="64"/> <img src="doc/components/button2Down.png" width="64" height="64"/></td>
-		<td>64x64</td>
+		<td>70x70</td>
+		<td>Button background, up and down state</td>
+		<td>resources/images/ui/button2Down.png</td>
+	</tr>
+	<tr>
+		<td><img src="doc/components/button3Up.png" width="64" height="64"/> <img src="doc/components/button3Down.png" width="64" height="64"/></td>
+		<td>70x70</td>
 		<td>Button background, up and down state</td>
 		<td>resources/images/ui/button2Down.png</td>
 	</tr>
@@ -115,10 +127,8 @@ All images names and paths which are used in the menu system are defined here.
 
 ### MenuView Class
 
-<img src="doc/screenshots/menus.png" width="240" height="160"/>
-<img src="doc/screenshots/text.png" width="240" height="160"/>
-<img src="doc/screenshots/image.png" width="240" height="160"/><br />
-*Screenshots: main menu, menu with text items and a menu with image items*
+<img src="doc/screenshots/menus.png" width="480" height="320"/>
+*Screenshot of the main menu*
 
 Parameters
  + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.

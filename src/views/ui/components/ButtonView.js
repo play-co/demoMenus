@@ -16,8 +16,8 @@ exports = Class(ButtonView, function (supr) {
 				},
 				scaleMethod: '9slice',
 				sourceSlices: {
-					horizontal: {left: 24, center: 16, right: 24},
-					vertical: {top: 24, middle: 16, bottom: 24}
+					horizontal: {left: 30, center: 10, right: 30},
+					vertical: {top: 30, middle: 10, bottom: 30}
 				},
 				text: {
 					fontFamily: buttonStyle.FONT_FAMILY,

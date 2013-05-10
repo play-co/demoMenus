@@ -11,8 +11,8 @@ exports = Class(ImageScaleView, function (supr) {
  				image: menuConstants.DIALOG.BACKGROUND,
 				scaleMethod: '9slice',
 				sourceSlices: {
-					horizontal: {left: 16, center: 8, right: 16},
-					vertical: {top: 16, middle: 8, bottom: 16}
+					horizontal: {left: 30, center: 10, right: 30},
+					vertical: {top: 30, middle: 10, bottom: 30}
 				}
 			}
 		);
@@ -32,9 +32,9 @@ exports = Class(ImageScaleView, function (supr) {
 				color: opts.textColor || '#000000',
 				strokeColor: opts.textOutline,
 				strokeWidth: ('strokeWidth' in opts) ? opts.strokeWidth : 6,
-				buffer: true,
 				padding: opts.textPadding,
-				horizontalAlign: opts.horizontalAlign || 'center'
+				horizontalAlign: opts.horizontalAlign || 'center',
+				buffer: false
 			});
 		}
 	};

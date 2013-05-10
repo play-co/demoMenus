@@ -14,7 +14,7 @@ exports = Class(DialogView, function (supr) {
 	this.init = function (opts) {
 		supr(this, 'init', arguments);
 
-		var height = 82;
+		var height = 140;
 		var items = opts.items;
 		for (var i = 0; i < items.length; i++) {
 			var item = items[i];
@@ -25,7 +25,7 @@ exports = Class(DialogView, function (supr) {
 			} else if (item.image) {
 				height += (item.height || 70) + 10;
 			} else {
-				height += 70;
+				height += 76;
 			}
 		}
 
@@ -45,7 +45,7 @@ exports = Class(DialogView, function (supr) {
 		var itemStyle = menuConstants.MENU_ITEM;
 		var textStyle = menuConstants.MENU_TEXT;
 		var menu = this;
-		var y = 80;
+		var y = 105;
 
 		for (var i = 0; i < items.length; i++) {
 			var item = items[i];
@@ -53,11 +53,11 @@ exports = Class(DialogView, function (supr) {
 				y += 10;
 			} else if (item.image) {
 				var align = itemStyle.ALIGN || item.align || 'left';
-				var x = 10;
+				var x = itemStyle.MARGIN_LEFT;
 				if (align === 'center') {
-					x = (this._dialogView.style.width - (item.width || 70)) * 0.5;
+					x = (this._dialogView.style.width - itemStyle.MARGIN_RIGHT - itemStyle.MARGIN_LEFT - (item.width || 70)) * 0.5;
 				} else if (item.align === 'right') {
-					x = this._dialogView.style.width - (item.width || 70) - 10;
+					x = this._dialogView.style.width - itemStyle.MARGIN_RIGHT - (item.width || 70) - 10;
 				}
 
 				new ImageView({
@@ -72,9 +72,9 @@ exports = Class(DialogView, function (supr) {
 			} else if (item.text) {
 				new TextView({
 					superview: this._dialogView,
-					x: 10,
+					x: itemStyle.MARGIN_LEFT,
 					y: y,
-					width: this._dialogView.style.width - 20,
+					width: this._dialogView.style.width - itemStyle.MARGIN_LEFT - itemStyle.MARGIN_RIGHT,
 					height: item.height || 70,
 					image: itemStyle.BACKGROUND,
 					text: item.text,
@@ -85,17 +85,16 @@ exports = Class(DialogView, function (supr) {
 					strokeColor: textStyle.STROKE_COLOR,
 					strokeWidth: textStyle.STROKE_WIDTH,
 					wrap: true,
-					buffer: false,
 					horizontalAlign: item.align || textStyle.ALIGN || 'center'
 				});
 				y += (item.height || 70) + 10;
 			} else {
 				var itemView = new BoxBorderView({
 					superview: this._dialogView,
-					x: 10,
+					x: itemStyle.MARGIN_LEFT,
 					y: y,
-					width: this._dialogView.style.width - 20,
-					height: 60,
+					width: this._dialogView.style.width - itemStyle.MARGIN_LEFT - itemStyle.MARGIN_RIGHT,
+					height: itemStyle.HEIGHT,
 					image: itemStyle.BACKGROUND,
 					text: item.item,
 					fontFamily: itemStyle.FONT_FAMILY,
@@ -122,7 +121,7 @@ exports = Class(DialogView, function (supr) {
 				})(item);
 
 				this._items.push(itemView);
-				y += 70;
+				y += itemStyle.HEIGHT + itemStyle.MARGIN_BOTTOM;
 			}
 		}
 	};

@@ -15,9 +15,9 @@ exports = Class(BoxBorderView, function (supr) {
 
 		this.title = new BoxBorderView({
 			superview: this,
-			x: 10,
-			y: 10,
-			width: this.style.width - 20,
+			x: 34,
+			y: 34,
+			width: this.style.width - 72,
 			height: 60,
 			image: titleStyle.BACKGROUND,
 			fontFamily: titleStyle.FONT_FAMILY,
@@ -25,24 +25,27 @@ exports = Class(BoxBorderView, function (supr) {
 			text: opts.title,
 			textColor: titleStyle.COLOR,
 			textOutline: titleStyle.STROKE_COLOR,
-			textPadding: titleStyle.PADDING
+			textPadding: titleStyle.PADDING,
+			strokeWidth: titleStyle.STROKE_WIDTH
 		});
 
 		if (opts.backCB) {
+			var backStyle = menuConstants.DIALOG.BACK;
+			var backImageStyle = backStyle.IMAGE;
 			new ButtonView({
 				superview: this.title,
-				x: 4,
-				y: 4,
-				width: 52,
-				height: 52,
+				x: backStyle.MARGIN_LEFT,
+				y: backStyle.MARGIN_TOP,
+				width: backStyle.WIDTH,
+				height: backStyle.HEIGHT,
 				title: '',
-				color: 'GREEN',
+				style: backStyle.STYLE,
 				icon: {
-					x: 7,
-					y: 7,
-					width: 38,
-					height: 38,
-					image: menuConstants.DIALOG.BACK
+					x: backImageStyle.MARGIN_LEFT,
+					y: backImageStyle.MARGIN_TOP,
+					width: backImageStyle.WIDTH,
+					height: backImageStyle.HEIGHT,
+					image: backImageStyle.URL
 				},
 				on: {
 					up: opts.backCB
@@ -50,20 +53,22 @@ exports = Class(BoxBorderView, function (supr) {
 			});
 		}
 		if (opts.closeCB) {
+			var closeStyle = menuConstants.DIALOG.CLOSE;
+			var closeImageStyle = closeStyle.IMAGE;
 			new ButtonView({
 				superview: this.title,
-				x: this.style.width - 76,
-				y: 4,
-				width: 52,
-				height: 52,
+				x: this.title.style.width - closeStyle.MARGIN_RIGHT - closeStyle.WIDTH,
+				y: closeStyle.MARGIN_TOP,
+				width: closeStyle.WIDTH,
+				height: closeStyle.HEIGHT,
 				title: '',
-				color: 'GREEN',
+				style: closeStyle.STYLE,
 				icon: {
-					x: 7,
-					y: 7,
-					width: 38,
-					height: 38,
-					image: menuConstants.DIALOG.CLOSE
+					x: closeImageStyle.MARGIN_LEFT,
+					y: closeImageStyle.MARGIN_TOP,
+					width: closeImageStyle.WIDTH,
+					height: closeImageStyle.HEIGHT,
+					image: closeImageStyle.URL
 				},
 				on: {
 					up: opts.closeCB

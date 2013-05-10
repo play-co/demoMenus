@@ -29,7 +29,7 @@ exports = Class(DialogView, function (supr) {
 
 		supr(this, 'init', arguments);
 
-		var contentStyle = menuConstants.CONTENT;
+		var contentStyle = menuConstants.DIALOG.CONTENT;
 
 		// The dialog containing the actual content...
 		this._dialogView = new BoxDialogView({
@@ -64,40 +64,44 @@ exports = Class(DialogView, function (supr) {
 			visible: false
 		});
 
+		var contentStyle = menuConstants.DIALOG.CONTENT;
+
 		var size = this._spriteView.getSize();
-		var availableHeight = this._dialogView.style.height - 175;
+		var availableHeight = this._dialogView.style.height - contentStyle.MARGIN_TOP - contentStyle.MARGIN_BOTTOM;
 		var availableWidth = availableHeight * size.width / size.height;
 
-		this._backgroundView.style.x = (this._dialogView.style.width - availableWidth) * 0.5;
-		this._backgroundView.style.y = 85;
-		this._backgroundView.style.width = availableWidth;
-		this._backgroundView.style.height = availableHeight;
+		this._backgroundView.style.x = (this._dialogView.style.width - availableWidth) * 0.5 + 1;
+		this._backgroundView.style.y = contentStyle.MARGIN_TOP + 1;
+		this._backgroundView.style.width = availableWidth - 2;
+		this._backgroundView.style.height = availableHeight - 2;
 
-		this._spriteView.style.x = (this._dialogView.style.width - availableWidth) * 0.5;
-		this._spriteView.style.y = 85;
-		this._spriteView.style.width = availableWidth;
-		this._spriteView.style.height = availableHeight;
+		this._spriteView.style.x = (this._dialogView.style.width - availableWidth) * 0.5 + 1;
+		this._spriteView.style.y = contentStyle.MARGIN_TOP + 1;
+		this._spriteView.style.width = availableWidth - 2;
+		this._spriteView.style.height = availableHeight - 2;
 
 		new ImageScaleView({
 			superview: this._dialogView,
-			x: (this._dialogView.style.width - availableWidth) * 0.5 - 2,
-			y: 85 - 2,
-			width: availableWidth + 4,
-			height: availableHeight + 4,
+			x: (this._dialogView.style.width - availableWidth) * 0.5,
+			y: contentStyle.MARGIN_TOP,
+			width: availableWidth,
+			height: availableHeight,
 			image: menuConstants.DIALOG.CONTENT_BORDER,
 			scaleMethod: '9slice',
 			sourceSlices: {
-				horizontal: {left: 16, center: 8, right: 16},
-				vertical: {top: 16, middle: 8, bottom: 16}
+				horizontal: {left: 30, center: 10, right: 30},
+				vertical: {top: 30, middle: 10, bottom: 30}
 			}
 		});
+
+		var buttonStyle = menuConstants.DIALOG.BUTTON;
 
 		new ButtonView({
 			superview: this._dialogView,
 			x: (this._dialogView.style.width - 120) * 0.5,
-			y: height - 74,
+			y: height - buttonStyle.HEIGHT - buttonStyle.MARGIN_BOTTOM,
 			width: 120,
-			height: 64,
+			height: buttonStyle.HEIGHT,
 			title: 'Ok',
 			color: 'BLUE',
 			on: {
@@ -113,7 +117,6 @@ exports = Class(DialogView, function (supr) {
 			[bind(
 				this,
 				function () {
-					console.log('here???')
 					this._spriteView.stopAnimation();
 					this._spriteView.startAnimation(this._opts.animation, {loop: this._opts.loop});
 				}
