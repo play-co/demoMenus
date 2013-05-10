@@ -65,24 +65,30 @@ exports = Class(DialogBackgroundView, function (supr) {
 		});
 
 		var contentStyle = menuConstants.DIALOG.CONTENT;
-
+		var tutorialStyle = menuConstants.DIALOG.TUTORIAL;
+		var horizontalMargin = tutorialStyle.MARGIN_LEFT + tutorialStyle.MARGIN_RIGHT;
 		var size = this._spriteView.getSize();
 		var availableHeight = this._dialogView.style.height - contentStyle.MARGIN_TOP - contentStyle.MARGIN_BOTTOM;
-		var availableWidth = availableHeight * size.width / size.height;
+		var availableWidth = availableHeight * size.width / size.height - horizontalMargin;
 
-		this._backgroundView.style.x = (this._dialogView.style.width - availableWidth) * 0.5 + 1;
+		if (availableWidth > this._dialogView.title.style.width) {
+			availableHeight *= this._dialogView.title.style.width / availableWidth;
+			availableWidth = this._dialogView.title.style.width - horizontalMargin;
+		}
+
+		this._backgroundView.style.x = tutorialStyle.MARGIN_LEFT + (this._dialogView.style.width - availableWidth - horizontalMargin) * 0.5 + 1;
 		this._backgroundView.style.y = contentStyle.MARGIN_TOP + 1;
 		this._backgroundView.style.width = availableWidth - 2;
 		this._backgroundView.style.height = availableHeight - 2;
 
-		this._spriteView.style.x = (this._dialogView.style.width - availableWidth) * 0.5 + 1;
+		this._spriteView.style.x = tutorialStyle.MARGIN_LEFT + (this._dialogView.style.width - availableWidth - horizontalMargin) * 0.5 + 1;
 		this._spriteView.style.y = contentStyle.MARGIN_TOP + 1;
 		this._spriteView.style.width = availableWidth - 2;
 		this._spriteView.style.height = availableHeight - 2;
 
 		new ImageScaleView({
 			superview: this._dialogView,
-			x: (this._dialogView.style.width - availableWidth) * 0.5,
+			x: tutorialStyle.MARGIN_LEFT + (this._dialogView.style.width - availableWidth - horizontalMargin) * 0.5,
 			y: contentStyle.MARGIN_TOP,
 			width: availableWidth,
 			height: availableHeight,

@@ -157,7 +157,7 @@ Returns
 
 extends `DialogBackgroundView`
 
-<img src="doc/screenshots/menus.png" width="480" height="320"/>
+<img src="doc/screenshots/menus.png" width="480" height="320"/><br />
 *Screenshot of the main menu*
 
 Parameters

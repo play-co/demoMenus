@@ -57,6 +57,10 @@ exports.DIALOG = {
 		MARGIN_RIGHT: 35,
 		MARGIN_TOP: 110,
 		MARGIN_BOTTOM: 125
+	},
+	TUTORIAL: {
+		MARGIN_LEFT: 0,
+		MARGIN_RIGHT: 4
 	}
 };
 

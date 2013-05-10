@@ -15,6 +15,8 @@ exports = Class(View, function (supr) {
 
 		supr(this, 'init', [opts]);
 
+		this.style.zIndex = 99999999;
+
 		if (opts.modal) {
 			// A darker background is the dialog is shown as a modal...
 			this._dialogOverlayView = new View({
