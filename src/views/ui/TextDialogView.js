@@ -51,7 +51,7 @@ exports = Class(DialogBackgroundView, function (supr) {
 			zIndex: -1
 		});
 
-		var buttons =  opts.buttons;
+		var buttons = opts.buttons;
 		var buttonStyle = menuConstants.DIALOG.BUTTON;
 
 		this.buttons = [];

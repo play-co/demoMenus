@@ -38,7 +38,7 @@ option is selected.
 ## Transitions
 
 This demo offsers several transitions to show or hide menus:
-sliding, scaling, fading and rotating.
+sliding, scaling and fading.
 
 ## 9-Slice images
 
@@ -250,11 +250,11 @@ __setTitle(text)__
 Parameters
  + `text {string}` ---Sets the title of the dialog
 
-### TutorialView Class
+### TutorialAnimationView Class
 
 extends `DialogBackgroundView`
 
-The `TutorialView` is a dialog to display a short animation.
+The `TutorialAnimationView` is a dialog to display a short animation.
 
 The [SpriteView](http://docs.gameclosure.com/api/ui-spriteview.html) class is used to play the animation.
 
@@ -266,3 +266,37 @@ Parameters
  + `title {string}` ---The title displayed in the title bar of the menu.
  + `url {string}` ---The path to the animation.
  + `animation {string}` ---The animation which is played.
+
+### DocumentView Class
+
+The `DocumentView` class allows you to display texts and images. You can define a single or multiple
+pages. When the text is too long to fit on a single page then scrolling is enabled. There are a number
+of options to style the text by selecting a background color, font family, font size, font color or alignment.
+
+<img src="doc/screenshots/documentBonus.png" width="320" height="480"/><br />
+*A screenshot of a dialog with text and images*
+
+Parameters
+ + `superview {View}` ---The view which contains this menu, could be a menu background or the game view.
+ + `title {string}` ---The title displayed in the title bar of the menu.
+ + `style {object}` ---Optional, the default style for texts and titles, the structure is as follows:
+  + `title {object}` ---Optional, the default title style.
+   + `fontFamily {string}` ---Optional, the font family of the title.
+   + `size {number}` ---Optional, the font size of the title.
+   + `color {string}` ---Optional, the color of the title.
+   + `align {string}` ---Optional, the alignment of the title, valid values are: 'left', 'center' or 'right'
+  + `text {object}` ---Optional, the default text style.
+   + `fontFamily {string}` ---Optional, the font family of the text.
+   + `size {number}` ---Optional, the font size of the text.
+   + `color {string}` ---Optional, the color of the text.
+   + `align {string}` ---Optional, the alignment of the text, valid values are: 'left', 'center', 'justify' or 'right'
+ + `items {array}` ---Optional, a list of settings objects for the page select buttons with the following structure:
+  + `type {string}` ---The type valid values are: 'prev', 'next', 'info' where 'info' shows the current and number of pages.
+  + `title {string}` ---If the type is 'prev' or 'next' then this is used as button title.
+  + `width {number}` ---The width of the items.
+  + `style {string}` ---The styling to apply to the button based on the associated value in `menuConstants`.
+  + `padding {array}` ---The padding to apply to the text on the button if the type is 'prev' or 'next'.
+ + `closeCB {function}` ---Optional, if set then a close button will be shown at the right top of the window.
+ + `backCB {function}` ---Optional, if set then a back button will be shown at the left top of the window.
+ + `pages {object}` ---See examples below.
+ 

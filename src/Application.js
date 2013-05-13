@@ -9,7 +9,11 @@ import src.constants.menuConstants as menuConstants;
 
 import src.views.ui.MenuView as MenuView;
 import src.views.ui.TextDialogView as TextDialogView;
-import src.views.ui.TutorialView as TutorialView;
+import src.views.ui.TutorialAnimationView as TutorialAnimationView;
+import src.views.ui.DocumentView as DocumentView;
+
+import src.doc.docPickups as docPickups;
+import src.doc.docText as docText;
 
 var BOUNDS_WIDTH = 576;
 var BOUNDS_HEIGHT = 1024;
@@ -59,6 +63,7 @@ exports = Class(GC.Application, function () {
 		this._createMenus();
 		this._createAlertMenus();
 		this._createTutorialMenus();
+		this._createDocumentMenu();
 		this._createConfirmMenus();
 		this._createCustomMenus();
 		this._createTransitionMenus();
@@ -73,6 +78,7 @@ exports = Class(GC.Application, function () {
 				{item: 'Alert dialogs', action: bind(this, 'showMenu', '_alertDialogsMenu')},
 				{item: 'Confirm dialogs', action: bind(this, 'showMenu', '_confirmDialogsMenu')},
 				{item: 'Tutorial dialog', action: bind(this, 'showMenu', '_tutorialMenu')},
+				{item: 'Document dialog', action: bind(this, 'showMenu', '_documentMenu')},
 				{item: 'Custom dialog', action: bind(this, 'showMenu', '_customMenuView')},
 				{item: 'Transitions', action: bind(this, 'showMenu', '_transitionsMenu')}
 			]
@@ -217,13 +223,13 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			title: 'Tutorial menu',
 			items: [
-				{item: 'Tutorial modal', action: bind(this, 'showMenu', '_tutorialModalView'), persist: true},
-				{item: 'Tutorial', action: bind(this, 'showMenu', '_tutorialView')}
+				{item: 'Tutorial modal', action: bind(this, 'showMenu', '_tutorialAnimationModalView'), persist: true},
+				{item: 'Tutorial', action: bind(this, 'showMenu', '_tutorialAnimationView')}
 			],
 			backCB: bind(this._mainMenu, 'show')
 		});
 
-		this._tutorialModalView = new TutorialView({
+		this._tutorialAnimationModalView = new TutorialAnimationView({
 			superview: this,
 			modal: true,
 			title: 'Tutorial',
@@ -231,12 +237,106 @@ exports = Class(GC.Application, function () {
 			animation: 'swipe'
 		});
 
-		this._tutorialView = new TutorialView({
+		this._tutorialAnimationView = new TutorialAnimationView({
 			superview: this,
 			title: 'Tutorial',
 			url: 'resources/images/tutorial/tutorial',
 			animation: 'swipe'
 		}).on('Hide', bind(this, 'showMenu', '_tutorialMenu'));
+	};
+
+	this._createDocumentMenu = function () {
+		this._documentMenu = new MenuView({
+			superview: this,
+			title: 'Document menu',
+			items: [
+				{item: 'Text example', action: bind(this, 'showMenu', '_textDocumentView')},
+				{item: 'Bonus example', action: bind(this, 'showMenu', '_alienEquipementView')}
+			],
+			backCB: bind(this._mainMenu, 'show')
+		});
+
+		this._textDocumentView = new DocumentView({
+			superview: this,
+			title: 'Text demo',
+			style: {
+				title: {
+					fontFamily: 'BPReplay',
+					size: 36,
+					color: '#000044',
+					align: 'center'
+				},
+				text: {
+					fontFamily: 'BPReplay',
+					size: 28,
+					color: '#000044',
+					align: 'center'
+				}
+			},
+			items: [
+				{
+					type: 'prev',
+					title: '<',
+					width: 80,
+					style: 'GREEN',
+					padding: [0, 0, 12, 0]
+				},
+				{
+					type: 'info',
+					width: 60,
+					color: '#000000',
+					fontFamily: 'BPReplay',
+					size: 32
+				},
+				{
+					type: 'next',
+					title: '>',
+					width: 80,
+					style: 'GREEN',
+					padding: [0, 0, 12, 0]
+				}
+			],
+			pages: docText,
+			closeCB: bind(this, 'showMenu', '_documentMenu')
+		});
+
+		this._alienEquipementView = new DocumentView({
+			superview: this,
+			title: 'Alien equipment',
+			style: {
+				text: {
+					fontFamily: 'BPReplay',
+					size: 28,
+					color: '#000044',
+					align: 'center'
+				}
+			},
+			items: [
+				{
+					type: 'prev',
+					title: '<',
+					width: 80,
+					style: 'GREEN',
+					padding: [0, 0, 12, 0]
+				},
+				{
+					type: 'info',
+					width: 60,
+					color: '#000000',
+					fontFamily: 'BPReplay',
+					size: 32
+				},
+				{
+					type: 'next',
+					title: '>',
+					width: 80,
+					style: 'GREEN',
+					padding: [0, 0, 12, 0]
+				}
+			],
+			pages: docPickups,
+			backCB: bind(this, 'showMenu', '_documentMenu')
+		});
 	};
 
 	this._createCustomMenus = function () {
@@ -353,6 +453,6 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.showMenu = function (menu) {
-		this[menu] && (typeof this[menu].show === 'function') && this[menu].show() || this._mainMenu.show();
+		this[menu] && (typeof this[menu].show === 'function') && this[menu].show();
 	};
 });
