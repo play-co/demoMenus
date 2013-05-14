@@ -366,19 +366,79 @@ import src.views.ui.DocumentView as DocumentView;
 
 this._textDocumentView = new DocumentView({
 	superview: this,
+	width: 500,
 	title: 'Single page demo',
-	closeCB: doSomethingWhenClosedCB
+	closeCB: doSomethingWhenClosedCB,
 	pages: [
 		{
 			content: [
 				{
-					title: 'Sed fermentum'
+					title: 'Displaying some text'
 				},
 				{
-					text: 'Sodales nibh a vulputate. Donec et tellus sit amet magna pulvinar vehicula ut et neque. Nulla lacinia auctor risus et porta.',
+					text: 'This is some text which is displayed in this DocumentView class instance.',
 				}
 			]
 		}
 	]
 });
 ~~~
+*Note: If you want to run this example you're going to have to implement `doSomethingWhenClosedCB`.*
+
+<img src="doc/screenshots/singlePage.png" width="320" height="480"/><br />
+*A screenshot of the dialog with one page*
+
+The next example shows a `DocumentView` dialog with two pages and a previous and next button:
+
+~~~
+import src.views.ui.DocumentView as DocumentView;
+
+this._textDocumentView = new DocumentView({
+	superview: this,
+	width: 500,
+	title: 'Multi page demo',
+	closeCB: bind(this, 'showMenu', '_mainMenu'),
+	pages: [
+		{
+			content: [
+				{
+					title: 'First title'
+				},
+				{
+					text: 'This is the text on the first page...',
+				}
+			]
+		},
+		{
+			content: [
+				{
+					title: 'Second page'
+				},
+				{
+					text: 'And this is the other text which is displayed on the second page...',
+				}
+			]
+		}
+	],
+	items: [
+		{
+			type: 'prev',
+			title: '<',
+			width: 80,
+			style: 'GREEN',
+			padding: [0, 0, 12, 0]
+		},
+		{
+			type: 'next',
+			title: '>',
+			width: 80,
+			style: 'GREEN',
+			padding: [0, 0, 12, 0]
+		}
+	]
+});
+~~~
+*Note: If you want to run this example you're going to have to implement `doSomethingWhenClosedCB`.*
+
+<img src="doc/screenshots/multiPage.png" width="320" height="480"/><br />
+*A screenshot of the dialog with two pages and page select buttons*
