@@ -12,6 +12,8 @@ import .components.DialogBackgroundView as DialogBackgroundView;
 
 exports = Class(DialogBackgroundView, function (supr) {
 	this.init = function (opts) {
+		var width = opts.width || GC.app.baseWidth - 80;
+
 		supr(this, 'init', arguments);
 
 		var height = 140;
@@ -31,9 +33,9 @@ exports = Class(DialogBackgroundView, function (supr) {
 
 		this._dialogView = new BoxDialogView({
 			superview: this._dialogContainerView,
-			x: 40,
+			x: (GC.app.baseWidth - width) * 0.5,
 			y: GC.app.baseHeight * 0.5 - height * 0.5,
-			width: GC.app.baseWidth - 80,
+			width: width,
 			height: height,
 			title: opts.title,
 			closeCB: opts.closeCB ? bind(this, 'hide', opts.closeCB) : false,
