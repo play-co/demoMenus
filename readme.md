@@ -305,6 +305,8 @@ Parameters
 The `DocumentView` class allows you to show basic texts with multiple pages. The pages property is an array.
 Each page is an object with the following properties:
 
+ + `backgroundColor {string}` ---Optional, the background color for the page.
+ + `image {string}` ---Optional, the path to an images which is used as background for the page.
  + `align {string}` ---Optional, the alignment for all items on the page.
  + `color {string}` ---Optional, the color for all texts on the page.
  + `fontFamily {string}` ---Optional, the font family for all texts on the page.
@@ -385,7 +387,7 @@ this._textDocumentView = new DocumentView({
 ~~~
 *Note: If you want to run this example you're going to have to implement `doSomethingWhenClosedCB`.*
 
-<img src="doc/screenshots/singlePage.png" width="320" height="480"/><br />
+<img src="doc/screenshots/singlePage.png" width="480" height="320"/><br />
 *A screenshot of the dialog with one page*
 
 The next example shows a `DocumentView` dialog with two pages and a previous and next button:
@@ -440,5 +442,5 @@ this._textDocumentView = new DocumentView({
 ~~~
 *Note: If you want to run this example you're going to have to implement `doSomethingWhenClosedCB`.*
 
-<img src="doc/screenshots/multiPage.png" width="320" height="480"/><br />
+<img src="doc/screenshots/multiPage.png" width="480" height="320"/><br />
 *A screenshot of the dialog with two pages and page select buttons*
