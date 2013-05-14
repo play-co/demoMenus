@@ -298,5 +298,87 @@ Parameters
   + `padding {array}` ---The padding to apply to the text on the button if the type is 'prev' or 'next'.
  + `closeCB {function}` ---Optional, if set then a close button will be shown at the right top of the window.
  + `backCB {function}` ---Optional, if set then a back button will be shown at the left top of the window.
- + `pages {object}` ---See examples below.
- 
+ + `pages {array}` ---See examples below.
+
+#### Defining pages
+
+The `DocumentView` class allows you to show basic texts with multiple pages. The pages property is an array.
+Each page is an object with the following properties:
+
+ + `align {string}` ---Optional, the alignment for all items on the page.
+ + `color {string}` ---Optional, the color for all texts on the page.
+ + `fontFamily {string}` ---Optional, the font family for all texts on the page.
+ + `size {number}` ---Optional, the size of all texts on the page.
+ + `content {array}` ---Texts, views or images shown on the page.
+
+The content array can contain several different types of object, there are a few key properties which define it's type:
+
+ + `text`: If a text string is set then it's handled as a basic text.
+ + `title`: If a title string is set then it's handled as a title text.
+ + `view`: If `view` is set to true then it's handled as a view, see below for more information.
+ + `image`: If an image location string is set then it's handled as an image.
+
+All items can handle the following optional properties:
+ + `align {string}` ---'left', 'right', 'center'
+ + `marginTop {number}` ---Margin size above the item.
+ + `marginBottom {number}` ---Margin size below the item.
+
+If the `title` property is set:
+ + `title {string}` ---The title text.
+ + `align {string}` ---Optional, the alignment the title, defaults to the page title alignment.
+ + `color {string}` ---Optional, the color the title, defaults to the page title color.
+ + `fontFamily {string}` ---Optional, the font family, defaults to the page title font family.
+ + `size {number}` ---Optional, the size of the title, defaults to the page title font size.
+
+If the `text` property is set:
+ + `text {string}` ---The text.
+ + `align {string}` ---Optional, the alignment the text, defaults to the page text alignment.
+ + `color {string}` ---Optional, the color the text, defaults to the page text color.
+ + `fontFamily {string}` ---Optional, the font family, defaults to the page text font family.
+ + `size {number}` ---Optional, the size of the text, defaults to the page text font size.
+
+If the `image` property is set:
+ + `image {string}` ---The location of the image.
+ + `align {string}` ---Optional, the alignment for the image.
+ + `width {number} = 50` ---Optional, the width of the image. 
+ + `height {number} = 50` ---Optional, the height of the image.
+ + `backgroundColor {string}` ---Optional, the background color of the image.
+
+If the `view` property is set:
+ + `view {view}` ---Has to be `true` to use item as view.
+ + `align {string}` ---Optional, the alignment for the image.
+ + `width {number} = 50` ---Optional, the width of the image. 
+ + `height {number} = 50` ---Optional, the height of the image.
+ + `backgroundColor {string}` ---Optional, the background color of the view.
+ + `children {array}` ---Optional, an array of images to with the following -recursive- format:
+  + `image {string}` ---The location of the image.
+  + `x {number} = 0` ---Optional, the x-position relative to the parent view.
+  + `y {number} = 0` ---Optional, the y-position relative to the parent view.
+  + `width {number} = 50` ---Optional, the width of the image. 
+  + `height {number} = 50` ---Optional, the height of the image.
+  + `backgroundColor {string}` ---Optional, the background color of the image.
+  + `children {array}` ---Optional, an array of images.
+
+The following example shows the most basic use of the `DocumentView`, it displays a title and some text:
+
+~~~
+import src.views.ui.DocumentView as DocumentView;
+
+this._textDocumentView = new DocumentView({
+	superview: this,
+	title: 'Single page demo',
+	closeCB: doSomethingWhenClosedCB
+	pages: [
+		{
+			content: [
+				{
+					title: 'Sed fermentum'
+				},
+				{
+					text: 'Sodales nibh a vulputate. Donec et tellus sit amet magna pulvinar vehicula ut et neque. Nulla lacinia auctor risus et porta.',
+				}
+			]
+		}
+	]
+});
+~~~

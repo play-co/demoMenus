@@ -125,13 +125,13 @@ exports = Class(DialogBackgroundView, function (supr) {
 
 	this._initStyle = function () {
 		var style = this._opts.style || {};
-		this._titleStyle = this._opts.style.title || {
+		this._titleStyle = style.title || {
 			fontFamily: 'Verdana',
-			size: 26,
+			size: 36,
 			color: '#000000',
 			align: 'left'
 		};
-		this._textStyle = this._opts.style.text || {
+		this._textStyle = style.text || {
 			fontFamily: 'Verdana',
 			size: 26,
 			color: '#000000',
@@ -318,10 +318,6 @@ exports = Class(DialogBackgroundView, function (supr) {
 
 	this.onNextPage = function () {
 		this._showPage((this._currentPage + 1) % this._pages.length);
-	};
-
-	this.onClose = function () {
-		//console.log
 	};
 
 	this.setTitle = function (text) {
