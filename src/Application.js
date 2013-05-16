@@ -5,12 +5,12 @@ import device;
 import ui.View as View;
 import ui.ImageView as ImageView;
 
-import src.constants.menuConstants as menuConstants;
+import menus.constants.menuConstants as menuConstants;
 
-import src.views.ui.MenuView as MenuView;
-import src.views.ui.TextDialogView as TextDialogView;
-import src.views.ui.TutorialAnimationView as TutorialAnimationView;
-import src.views.ui.DocumentView as DocumentView;
+import menus.views.MenuView as MenuView;
+import menus.views.TextDialogView as TextDialogView;
+import menus.views.TutorialAnimationView as TutorialAnimationView;
+import menus.views.DocumentView as DocumentView;
 
 import src.doc.docPickups as docPickups;
 import src.doc.docText as docText;
