@@ -70,7 +70,7 @@ exports = [
 				]
 			},
 			{
-				text: 'The Electo Magnetic Pulse will disturb all alien flying equipment and force a hasty retreat, you can activate it by swiping down...',
+				text: 'The Electro Magnetic Pulse will disturb all alien flying equipment and force a hasty retreat, you can activate it by swiping down...',
 				color: 'rgb(8, 205, 255)'
 			}
 		]

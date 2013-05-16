@@ -1,6 +1,8 @@
 import lib.Enum as Enum;
 
-exports.transitionMethod = Enum(
+var constants = {};
+
+constants.transitionMethod = Enum(
 	'NONE',
 	'SLIDE',
 	'SCALE',
@@ -8,12 +10,28 @@ exports.transitionMethod = Enum(
 	'ROTATE'
 );
 
-exports.DIALOG = {
+constants.BOX_SLICES = {
+	SOURCE_SLICES: {
+		horizontal: {left: 30, center: 10, right: 30},
+		vertical: {top: 30, middle: 10, bottom: 30}
+	},
+	DEST_SLICES: undefined
+};
+
+constants.BUTTON_SLICES = {
+	SOURCE_SLICES: {
+		horizontal: {left: 30, center: 10, right: 30},
+		vertical: {top: 30, middle: 10, bottom: 30}
+	},
+	DEST_SLICES: undefined
+};
+
+constants.DIALOG = {
 	BACKGROUND: 'resources/images/ui/background.png',
 	CONTENT_BORDER: 'resources/images/ui/contentBorder.png',
-	SHOW_TRANSITION_METHOD: exports.transitionMethod.SLIDE,
+	SHOW_TRANSITION_METHOD: constants.transitionMethod.SLIDE,
 	SHOW_TRANSITION_TIME: 300,
-	HIDE_TRANSITION_METHOD: exports.transitionMethod.SLIDE,
+	HIDE_TRANSITION_METHOD: constants.transitionMethod.SLIDE,
 	HIDE_TRANSITION_TIME: 300,
 	BACK: {
 		MARGIN_LEFT: 2,
@@ -69,11 +87,11 @@ exports.DIALOG = {
 	}
 };
 
-exports.TUTORIAL = {
+constants.TUTORIAL = {
 	BACKGROUND_COLOR: 'rgb(255, 255, 255)'
 };
 
-exports.MENU_TEXT = {
+constants.MENU_TEXT = {
 	FONT_FAMILY: 'BPReplay',
 	FONT_SIZE: 36,
 	PADDING: [0, 0, 0, 0],
@@ -83,7 +101,7 @@ exports.MENU_TEXT = {
 	ALIGN: 'center'
 };
 
-exports.MENU_ITEM = {
+constants.MENU_ITEM = {
 	BACKGROUND: 'resources/images/ui/buttonItem.png',
 	FONT_FAMILY: 'BPReplay',
 	FONT_SIZE: 36,
@@ -97,7 +115,7 @@ exports.MENU_ITEM = {
 	STROKE_WIDTH: 3
 };
 
-exports.TITLE = {
+constants.TITLE = {
 	BACKGROUND: 'resources/images/ui/title.png',
 	FONT_FAMILY: 'BPReplay',
 	FONT_SIZE: 36,
@@ -106,7 +124,7 @@ exports.TITLE = {
 	STROKE_WIDTH: 1
 };
 
-exports.BUTTONS = {
+constants.BUTTONS = {
 	BLUE: {
 		UP: 'resources/images/ui/button1Up.png',
 		DOWN: 'resources/images/ui/button1Down.png',
@@ -135,3 +153,10 @@ exports.BUTTONS = {
 		STROKE_WIDTH: 6
 	}
 };
+
+function setConstants (c) {
+	exports = merge(c, exports);
+	exports.set = setConstants;
+}
+
+setConstants(constants);

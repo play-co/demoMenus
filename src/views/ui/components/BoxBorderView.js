@@ -10,10 +10,8 @@ exports = Class(ImageScaleView, function (supr) {
 			{
  				image: menuConstants.DIALOG.BACKGROUND,
 				scaleMethod: '9slice',
-				sourceSlices: {
-					horizontal: {left: 30, center: 10, right: 30},
-					vertical: {top: 30, middle: 10, bottom: 30}
-				}
+				sourceSlices: menuConstants.BOX_SLICES.SOURCE_SLICES,
+				destSlices: menuConstants.BOX_SLICES.DEST_SLICES
 			}
 		);
 

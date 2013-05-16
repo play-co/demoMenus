@@ -15,10 +15,8 @@ exports = Class(ButtonView, function (supr) {
 					up: buttonStyle.UP
 				},
 				scaleMethod: '9slice',
-				sourceSlices: {
-					horizontal: {left: 30, center: 10, right: 30},
-					vertical: {top: 30, middle: 10, bottom: 30}
-				},
+				sourceSlices: menuConstants.BUTTON_SLICES.SOURCE_SLICES,
+				destSlices: menuConstants.BUTTON_SLICES.DEST_SLICES,
 				text: {
 					fontFamily: buttonStyle.FONT_FAMILY,
 					size: buttonStyle.FONT_SIZE,
