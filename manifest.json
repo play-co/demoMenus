@@ -1,7 +1,7 @@
 {
 	"appID": "8a5a8f09b920477c8b2c226de719d530",
 	"shortName": "menus",
-	"title": "menus",
+	"title": "demo menus",
 	"studio": {
 		"name": "Example Studio Name",
 		"domain": "studio.example.com",
@@ -43,5 +43,5 @@
 			"renderGloss": true
 		}
 	},
-	"sdkVersion": "release-0.1.13"
+	"sdkVersion": "release-0.1.17"
 }
