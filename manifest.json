@@ -10,6 +10,9 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"dependencies": {
+		"devkit-menus": "https://github.com/gameclosure/menus#v2.0.0"
+	},
 	"description": "",
 	"icon": "resources/icons/icon512.png",
 	"splash": {
